@@ -1,6 +1,39 @@
 <!DOCTYPE html>
 <html class="light" lang="en">
 <head>
+  <!-- Anti-copy / content protection (basic deterrence only) -->
+<style>
+/* Disable text selection */
+body {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Optional: hide selection highlight */
+::selection {
+  background: transparent;
+}
+</style>
+
+<script>
+// Disable right click
+document.addEventListener("contextmenu", e => e.preventDefault());
+
+// Block common copy actions
+document.addEventListener("copy", e => e.preventDefault());
+document.addEventListener("cut", e => e.preventDefault());
+document.addEventListener("paste", e => e.preventDefault());
+
+// Block some dev shortcuts (light deterrent only)
+document.addEventListener("keydown", function(e) {
+  const blocked =
+    (e.ctrlKey && ["c","u","s","a","p"].includes(e.key.toLowerCase())) ||
+    e.key === "F12";
+
+  if (blocked) e.preventDefault();
+});
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IB Physics Paper 1A Timezone 1A-C — 26M | Exam Leaks</title>
