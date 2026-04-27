@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+    <script>
+(function () {
+    const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+
+    if (!isLoggedIn) {
+        window.location.replace("/Login.html");
+    }
+})();
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ExamLeak Dash - Secure Monitor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#3c475a",
+                        "surface-tint": "#545f73",
+                        "on-surface": "#1b1b1d",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "secondary-fixed": "#d3e4fe",
+                        "tertiary": "#111516",
+                        "outline": "#75777d",
+                        "outline-variant": "#c5c6cd",
+                        "primary-container": "#1e293b",
+                        "surface-container-highest": "#e4e2e3",
+                        "primary": "#091426",
+                        "on-primary-fixed": "#111c2d",
+                        "primary-fixed-dim": "#bcc7de",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "surface-bright": "#fbf8fa",
+                        "primary-fixed": "#d8e3fb",
+                        "secondary-container": "#d0e1fb",
+                        "surface": "#fbf8fa",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#8590a6",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-tertiary-container": "#8d9092",
+                        "tertiary-container": "#26292b",
+                        "surface-variant": "#e4e2e3",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dcd9db",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#54647a",
+                        "tertiary-fixed": "#e0e3e5",
+                        "background": "#fbf8fa",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1b1b1d",
+                        "surface-container": "#f0edef",
+                        "secondary": "#505f76",
+                        "inverse-primary": "#bcc7de",
+                        "inverse-on-surface": "#f3f0f2",
+                        "on-surface-variant": "#45474c",
+                        "on-tertiary-fixed": "#191c1e",
+                        "surface-container-high": "#eae7e9",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f5f3f4",
+                        "inverse-surface": "#303032",
+                        "on-secondary-fixed": "#0b1c30"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "0.5rem",
+                        "card-padding": "1.5rem",
+                        "stack-lg": "2rem",
+                        "container-padding": "2rem",
+                        "gutter": "1.5rem",
+                        "stack-md": "1rem"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-xl": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #fbf8fa; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .sidebar-active { background-color: #e2e8f0; color: #091426; border-radius: 0.5rem; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-6 h-16 bg-white border-b border-slate-200 shadow-sm">
+<div class="flex items-center gap-8 flex-1">
+<span class="text-xl font-bold text-slate-900">ExamLeak Dash</span>
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full bg-slate-50 border border-slate-200 rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary-container focus:border-transparent outline-none" placeholder="Search exams, zones, or codes..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-colors active:opacity-80">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center gap-2 p-1 pl-3 border border-slate-200 rounded-full hover:bg-slate-50 transition-colors active:opacity-80">
+<span class="text-xs font-medium text-slate-700">Administrator</span>
+<span class="material-symbols-outlined text-slate-900">account_circle</span>
+</button>
+</div>
+</header>
+<div class="flex pt-16 min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 border-r border-slate-200 flex flex-col p-4 space-y-2 bg-slate-50 overflow-y-auto">
+<div class="px-2 mb-4">
+<h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Categories</h3>
+<p class="text-[10px] text-slate-500">Thank you for your patience</p>
+</div>
+<nav class="space-y-1"><a class="flex items-center gap-3 px-3 py-2 text-sm font-medium bg-slate-200 text-slate-900 rounded-lg transition-all scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>All Leaks</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-lg transition-all" href="Upcoming.html">
+<span class="material-symbols-outlined">schedule</span>
+<span>Upcoming Leaks</span>
+</a></nav>
+<div class="mt-auto pt-4 border-t border-slate-200">
+<div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-error text-sm" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="text-xs font-bold text-slate-900">System Status</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></div>
+<span class="text-[11px] text-slate-500">All Nodes Secure</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 p-8 pb-20">
+<header class="mb-8">
+<div class="flex items-center justify-between">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-slate-900 mb-1">Exam Monitor Dashboard</h1>
+<p class="font-body-md text-body-md text-slate-500">Real-time leak monitoring across global examination timezones.</p>
+</div>
+</div>
+</header>
+<!-- Bento Grid of Exam Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Physics Paper 1 -->
+<a href="/ExamQuestionsPhysicsP1TzAB.html" class="block">
+  <article class="bg-white border border-outline-variant rounded-[24px] p-card-padding shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-1px_rgba(0,0,0,0.03)] hover:border-slate-300 hover:shadow-lg transition-all flex flex-col group cursor-pointer">
+    
+    <div class="flex justify-between items-start mb-4">
+      <div class="bg-slate-50 p-2 rounded-lg">
+        <span class="material-symbols-outlined text-slate-600">science</span>
+      </div>
+      <span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase px-2 py-1 rounded">
+        Secured
+      </span>
+    </div>
+
+    <h2 class="font-headline-md text-headline-md text-slate-900 mb-stack-sm group-hover:text-slate-700 transition-colors">
+      Physics Paper 1
+    </h2>
+
+    <p class="text-body-md font-body-md text-slate-500 mb-stack-md">
+      Only the first 20 questions are verified.
+    </p>
+
+    <div class="flex flex-wrap gap-1.5 mt-auto">
+      <span class="bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200">Zone 1A</span>
+      <span class="bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200">Zone 1B</span>
+      <span class="bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200">Zone 1C</span>
+      <span class="bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200">Zone 2A</span>
+      <span class="bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200">Zone 2B</span>
+      <span class="bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200">Zone 2C</span>
+      <span class="bg-slate-100 text-slate-400 text-[11px] font-medium px-2.5 py-1 rounded-full">+3 More</span>
+    </div>
+
+  </article>
+</a>
+<style>
+.locked-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.locked-card > * {
+  filter: blur(7px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.locked-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(2px);
+  z-index: 5;
+}
+
+.locked-card::after {
+  content: "Not available at the moment for your timezone account";
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 22px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #0f172a;
+}
+</style>
+
+<!-- Physics Paper 2 -->
+<article class="locked-card bg-white border border-outline-variant rounded-[24px] p-card-padding shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-1px_rgba(0,0,0,0.03)] hover:border-slate-300 transition-all flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-slate-50 p-2 rounded-lg">
+<span class="material-symbols-outlined text-slate-600">bolt</span>
+</div>
+<span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase px-2 py-1 rounded">Secured</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-slate-900 mb-stack-sm">Physics Paper 2</h2>
+<p class="text-body-md font-body-md text-slate-500 mb-stack-md">Electromagnetism &amp; Wave Phenomena analysis.</p>
+<div class="flex flex-wrap gap-1.5 mt-auto">
+<span class="bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200">Zone 1A</span>
+</div>
+</article>
+
+<!-- Business Paper 1 -->
+<article class="locked-card bg-white border border-outline-variant rounded-[24px] p-card-padding shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-1px_rgba(0,0,0,0.03)] hover:border-slate-300 transition-all flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-slate-50 p-2 rounded-lg">
+<span class="material-symbols-outlined text-slate-600">analytics</span>
+</div>
+<span class="bg-amber-50 text-amber-700 text-[10px] font-bold uppercase px-2 py-1 rounded">Active Monitor</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-slate-900 mb-stack-sm">Business Paper 1</h2>
+<p class="text-body-md font-body-md text-slate-500 mb-stack-md">Strategic Decision Making &amp; Case Studies.</p>
+</article>
+
+<!-- Business Paper 3 -->
+<article class="locked-card bg-white border border-outline-variant rounded-[24px] p-card-padding shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-1px_rgba(0,0,0,0.03)] hover:border-slate-300 transition-all flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-slate-50 p-2 rounded-lg">
+<span class="material-symbols-outlined text-slate-600">corporate_fare</span>
+</div>
+<span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase px-2 py-1 rounded">Secured</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-slate-900 mb-stack-sm">Business Paper 3</h2>
+<p class="text-body-md font-body-md text-slate-500 mb-stack-md">Global Operations &amp; Change Management.</p>
+</article>
+
+<!-- SEHS HL Paper 1 -->
+<article class="locked-card bg-white border border-outline-variant rounded-[24px] p-card-padding shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-1px_rgba(0,0,0,0.03)] hover:border-slate-300 transition-all flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-slate-50 p-2 rounded-lg">
+<span class="material-symbols-outlined text-slate-600">fitness_center</span>
+</div>
+<span class="bg-slate-100 text-slate-500 text-[10px] font-bold uppercase px-2 py-1 rounded">Pending</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-slate-900 mb-stack-sm">Sports &amp; Health Science HL</h2>
+<p class="text-body-md font-body-md text-slate-500 mb-stack-md">Higher Level physiology and biomechanics.</p>
+</article>
+
+<!-- SEHS SL Paper 1 -->
+<article class="locked-card bg-white border border-outline-variant rounded-[24px] p-card-padding shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-1px_rgba(0,0,0,0.03)] hover:border-slate-300 transition-all flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-slate-50 p-2 rounded-lg">
+<span class="material-symbols-outlined text-slate-600">health_and_safety</span>
+</div>
+<span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase px-2 py-1 rounded">Secured</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-slate-900 mb-stack-sm">Sports &amp; Health Science SL</h2>
+<p class="text-body-md font-body-md text-slate-500 mb-stack-md">Standard Level anatomy and nutrition.</p>
+</article>
+
+<!-- Business Management Paper 2 -->
+<article class="locked-card bg-white border border-outline-variant rounded-[24px] p-card-padding shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-1px_rgba(0,0,0,0.03)] hover:border-slate-300 transition-all flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-slate-50 p-2 rounded-lg">
+<span class="material-symbols-outlined text-slate-600">account_balance</span>
+</div>
+<span class="bg-error-container text-on-error-container text-[10px] font-bold uppercase px-2 py-1 rounded">Alert</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-slate-900 mb-stack-sm">Business Management P2</h2>
+<p class="text-body-md font-body-md text-slate-500 mb-stack-md">Human resources &amp; marketing strategy.</p>
+</article>
+</article>
+<!-- Zone Map Card -->
+</div>
+</main>
+</div>
+<!-- Footer -->
+</body></html>
