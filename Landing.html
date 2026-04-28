@@ -1,13 +1,12 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html class="light" lang="en"><head>
   
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>ExamLeak Dash</title>
+<title>ExamLeaks Dashboard</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
@@ -101,6 +100,63 @@
         body { font-family: 'Inter', sans-serif; background-color: #fbf8fa; }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
         .sidebar-active { background-color: #e2e8f0; color: #091426; border-radius: 0.5rem; }
+        
+        /* Warning overlay for Physics Paper 1 */
+        .warning-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .warning-content {
+            background: white;
+            padding: 1.25rem 1.5rem;
+            border-radius: 1rem;
+            text-align: center;
+            max-width: 85%;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .warning-content p {
+            color: #991b1b;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        
+        .ignore-btn {
+            background: #1e293b;
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+            border: none;
+        }
+        
+        .ignore-btn:hover {
+            background: #0f172a;
+        }
+        
+        .paper1-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .paper1-card.blurred > *:not(.warning-overlay) {
+            filter: blur(4px);
+            pointer-events: none;
+            user-select: none;
+        }
     </style>
 </head>
 <body class="bg-background text-on-surface">
@@ -163,15 +219,23 @@
 </header>
 <!-- Bento Grid of Exam Cards -->
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
-<!-- Physics Paper 1 - Timezone Selector -->
-<div class="bg-white border border-outline-variant rounded-[24px] p-card-padding shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-1px_rgba(0,0,0,0.03)] transition-all flex flex-col">
+<!-- Physics Paper 1 - Timezone Selector WITH WARNING OVERLAY -->
+<div id="physicsPaper1Card" class="paper1-card blurred bg-white border border-outline-variant rounded-[24px] p-card-padding shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-1px_rgba(0,0,0,0.03)] transition-all flex flex-col">
+  
+  <!-- Warning Overlay (dismissible) -->
+  <div id="warningOverlay" class="warning-overlay">
+    <div class="warning-content">
+      <p>⚠️ Warning: Exam period has concluded.<br>Low accuracy paper — proceed with caution.</p>
+      <button id="ignoreWarningBtn" class="ignore-btn">Ignore & View →</button>
+    </div>
+  </div>
   
   <div class="flex justify-between items-start mb-4">
     <div class="bg-slate-50 p-2 rounded-lg">
       <span class="material-symbols-outlined text-slate-600">science</span>
     </div>
-    <span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase px-2 py-1 rounded">
-      Secured
+    <span class="bg-red-100 text-red-700 text-[10px] font-bold uppercase px-2 py-1 rounded">
+      Exam Period Closed
     </span>
   </div>
 
@@ -203,95 +267,80 @@
 
 </div>
 
-<script>
-  (function() {
-    const zoneButtons = document.querySelectorAll('.zone-option');
-    const examLink = document.getElementById('examLink');
-    const selectedLabel = document.getElementById('selectedZoneLabel');
-    
-    function updateSelectedZone(zone, file, buttonElement) {
-      examLink.href = file;
-      selectedLabel.textContent = zone;
-      
-      zoneButtons.forEach(btn => {
-        btn.classList.remove('bg-[#1e293b]', 'text-white');
-        btn.classList.add('bg-[#F8FAFC]', 'text-slate-600');
-      });
-      buttonElement.classList.remove('bg-[#F8FAFC]', 'text-slate-600');
-      buttonElement.classList.add('bg-[#1e293b]', 'text-white');
-    }
-    
-    zoneButtons.forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const zone = this.getAttribute('data-zone');
-        const file = this.getAttribute('data-file');
-        if (zone && file) {
-          updateSelectedZone(zone, file, this);
-        }
-      });
-    });
-    
-    // Default active: Zone 1A-B
-    const defaultButton = document.querySelector('.zone-option[data-zone="1A-B"]');
-    if (defaultButton) {
-      defaultButton.classList.remove('bg-[#F8FAFC]', 'text-slate-600');
-      defaultButton.classList.add('bg-[#1e293b]', 'text-white');
-    }
-  })();
-</script>
+<!-- Physics Paper 2 - Timezone Selector -->
+<div class="bg-white border border-outline-variant rounded-[24px] p-card-padding shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-1px_rgba(0,0,0,0.03)] transition-all flex flex-col">
+  
+  <div class="flex justify-between items-start mb-4">
+    <div class="bg-slate-50 p-2 rounded-lg">
+      <span class="material-symbols-outlined text-slate-600">bolt</span>
+    </div>
+    <span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase px-2 py-1 rounded">
+      Secured
+    </span>
+  </div>
+
+  <h2 class="font-headline-md text-headline-md text-slate-900 mb-stack-sm">
+    Physics Paper 2
+  </h2>
+
+  <p class="text-body-md font-body-md text-slate-500 mb-stack-md">
+    Select your timezone below. Extended response questions on fields, electromagnetism & waves.
+  </p>
+
+  <!-- Timezone Selection Row - 6 composite zones -->
+  <div class="flex flex-wrap gap-1.5 mt-auto mb-4">
+    <button data-zone-p2="1A-B" data-file-p2="/PhysicsPaper2Zone1AB.html" class="zone-option-p2 bg-[#1e293b] text-white text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200 transition-all">Zone 1A-B</button>
+    <button data-zone-p2="1C" data-file-p2="/PhysicsPaper2Zone1C.html" class="zone-option-p2 bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200 hover:bg-slate-100 transition-all">Zone 1C</button>
+    <button data-zone-p2="2A" data-file-p2="/PhysicsPaper2Zone2A.html" class="zone-option-p2 bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200 hover:bg-slate-100 transition-all">Zone 2A</button>
+    <button data-zone-p2="2B-C" data-file-p2="/PhysicsPaper2Zone2BC.html" class="zone-option-p2 bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200 hover:bg-slate-100 transition-all">Zone 2B-C</button>
+    <button data-zone-p2="3A-B" data-file-p2="/PhysicsPaper2Zone3AB.html" class="zone-option-p2 bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200 hover:bg-slate-100 transition-all">Zone 3A-B</button>
+    <button data-zone-p2="3C" data-file-p2="/PhysicsPaper2Zone3C.html" class="zone-option-p2 bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200 hover:bg-slate-100 transition-all">Zone 3C</button>
+  </div>
+
+  <!-- Dynamic Link -->
+  <a id="examLinkP2" href="/PhysicsPaper2Zone1AB.html" class="block mt-2">
+    <div class="bg-slate-50 rounded-xl p-3 text-center text-sm text-slate-600 hover:bg-slate-100 transition-colors">
+      <span class="material-symbols-outlined text-sm align-middle mr-1">play_circle</span>
+      Start <span id="selectedZoneLabelP2">Zone 1A-B</span> Exam →
+    </div>
+  </a>
+
+</div>
+
 <style>
-.locked-card {
-  position: relative;
-  overflow: hidden;
-}
-
-.locked-card > * {
-  filter: blur(7px);
-  pointer-events: none;
-  user-select: none;
-}
-
-.locked-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(2px);
-  z-index: 5;
-}
-
-.locked-card::after {
-  content: "Not available at the moment for your timezone account";
-  position: absolute;
-  inset: 0;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 22px;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.5;
-  color: #0f172a;
-}
+  .locked-card {
+    position: relative;
+    overflow: hidden;
+  }
+  .locked-card > * {
+    filter: blur(7px);
+    pointer-events: none;
+    user-select: none;
+  }
+  .locked-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(2px);
+    z-index: 5;
+  }
+  .locked-card::after {
+    content: "Not available at the moment for your timezone account";
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 22px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #0f172a;
+  }
 </style>
-
-<!-- Physics Paper 2 -->
-<article class="locked-card bg-white border border-outline-variant rounded-[24px] p-card-padding shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-1px_rgba(0,0,0,0.03)] hover:border-slate-300 transition-all flex flex-col">
-<div class="flex justify-between items-start mb-4">
-<div class="bg-slate-50 p-2 rounded-lg">
-<span class="material-symbols-outlined text-slate-600">bolt</span>
-</div>
-<span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase px-2 py-1 rounded">Secured</span>
-</div>
-<h2 class="font-headline-md text-headline-md text-slate-900 mb-stack-sm">Physics Paper 2</h2>
-<p class="text-body-md font-body-md text-slate-500 mb-stack-md">Electromagnetism &amp; Wave Phenomena analysis.</p>
-<div class="flex flex-wrap gap-1.5 mt-auto">
-<span class="bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200">Zone 1A</span>
-</div>
-</article>
 
 <!-- Business Paper 1 -->
 <article class="locked-card bg-white border border-outline-variant rounded-[24px] p-card-padding shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-1px_rgba(0,0,0,0.03)] hover:border-slate-300 transition-all flex flex-col">
@@ -352,10 +401,105 @@
 <h2 class="font-headline-md text-headline-md text-slate-900 mb-stack-sm">Business Management P2</h2>
 <p class="text-body-md font-body-md text-slate-500 mb-stack-md">Human resources &amp; marketing strategy.</p>
 </article>
-</article>
-<!-- Zone Map Card -->
 </div>
 </main>
 </div>
-<!-- Footer -->
-</body></html>
+
+<script>
+  // Paper 1 zone selector script
+  (function() {
+    const zoneButtons = document.querySelectorAll('.zone-option');
+    const examLink = document.getElementById('examLink');
+    const selectedLabel = document.getElementById('selectedZoneLabel');
+    
+    function updateSelectedZone(zone, file, buttonElement) {
+      examLink.href = file;
+      selectedLabel.textContent = zone;
+      
+      zoneButtons.forEach(btn => {
+        btn.classList.remove('bg-[#1e293b]', 'text-white');
+        btn.classList.add('bg-[#F8FAFC]', 'text-slate-600');
+      });
+      buttonElement.classList.remove('bg-[#F8FAFC]', 'text-slate-600');
+      buttonElement.classList.add('bg-[#1e293b]', 'text-white');
+    }
+    
+    zoneButtons.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const zone = this.getAttribute('data-zone');
+        const file = this.getAttribute('data-file');
+        if (zone && file) {
+          updateSelectedZone(zone, file, this);
+        }
+      });
+    });
+    
+    const defaultButton = document.querySelector('.zone-option[data-zone="1A-B"]');
+    if (defaultButton) {
+      defaultButton.classList.remove('bg-[#F8FAFC]', 'text-slate-600');
+      defaultButton.classList.add('bg-[#1e293b]', 'text-white');
+    }
+  })();
+  
+  // Paper 2 zone selector script
+  (function() {
+    const zoneButtonsP2 = document.querySelectorAll('.zone-option-p2');
+    const examLinkP2 = document.getElementById('examLinkP2');
+    const selectedLabelP2 = document.getElementById('selectedZoneLabelP2');
+    
+    if (!zoneButtonsP2.length || !examLinkP2 || !selectedLabelP2) return;
+    
+    function updateSelectedZoneP2(zone, file, buttonElement) {
+      examLinkP2.href = file;
+      selectedLabelP2.textContent = zone;
+      
+      zoneButtonsP2.forEach(btn => {
+        btn.classList.remove('bg-[#1e293b]', 'text-white');
+        btn.classList.add('bg-[#F8FAFC]', 'text-slate-600');
+      });
+      buttonElement.classList.remove('bg-[#F8FAFC]', 'text-slate-600');
+      buttonElement.classList.add('bg-[#1e293b]', 'text-white');
+    }
+    
+    zoneButtonsP2.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const zone = this.getAttribute('data-zone-p2');
+        const file = this.getAttribute('data-file-p2');
+        if (zone && file) {
+          updateSelectedZoneP2(zone, file, this);
+        }
+      });
+    });
+    
+    const defaultButtonP2 = document.querySelector('.zone-option-p2[data-zone-p2="1A-B"]');
+    if (defaultButtonP2) {
+      defaultButtonP2.classList.remove('bg-[#F8FAFC]', 'text-slate-600');
+      defaultButtonP2.classList.add('bg-[#1e293b]', 'text-white');
+    }
+  })();
+  
+  // Warning overlay dismissal
+  (function() {
+    const warningOverlay = document.getElementById('warningOverlay');
+    const paper1Card = document.getElementById('physicsPaper1Card');
+    const ignoreBtn = document.getElementById('ignoreWarningBtn');
+    
+    if (warningOverlay && paper1Card && ignoreBtn) {
+      ignoreBtn.addEventListener('click', function() {
+        warningOverlay.remove();
+        paper1Card.classList.remove('blurred');
+        localStorage.setItem('physicsPaper1WarningDismissed', 'true');
+      });
+      
+      // Optional: Check localStorage to auto-dismiss if previously ignored
+      if (localStorage.getItem('physicsPaper1WarningDismissed') === 'true') {
+        warningOverlay.remove();
+        paper1Card.classList.remove('blurred');
+      }
+    }
+  })();
+</script>
+</body>
+</html>
