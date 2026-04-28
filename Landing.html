@@ -1,42 +1,10 @@
 <!DOCTYPE html>
 
 <html class="light" lang="en"><head>
-        <!-- Anti-copy / content protection (basic deterrence only) -->
-<style>
-/* Disable text selection */
-body {
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* Optional: hide selection highlight */
-::selection {
-  background: transparent;
-}
-</style>
-
-<script>
-// Disable right click
-document.addEventListener("contextmenu", e => e.preventDefault());
-
-// Block common copy actions
-document.addEventListener("copy", e => e.preventDefault());
-document.addEventListener("cut", e => e.preventDefault());
-document.addEventListener("paste", e => e.preventDefault());
-
-// Block some dev shortcuts (light deterrent only)
-document.addEventListener("keydown", function(e) {
-  const blocked =
-    (e.ctrlKey && ["c","u","s","a","p"].includes(e.key.toLowerCase())) ||
-    e.key === "F12";
-
-  if (blocked) e.preventDefault();
-});
-</script>
+  
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>ExamLeak Dash - Secure Monitor</title>
+<title>ExamLeak Dash</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -150,7 +118,7 @@ document.addEventListener("keydown", function(e) {
 <span class="material-symbols-outlined">notifications</span>
 </button>
 <button class="flex items-center gap-2 p-1 pl-3 border border-slate-200 rounded-full hover:bg-slate-50 transition-colors active:opacity-80">
-<span class="text-xs font-medium text-slate-700">Administrator</span>
+<span class="text-xs font-medium text-slate-700">Paid User</span>
 <span class="material-symbols-outlined text-slate-900">account_circle</span>
 </button>
 </div>
@@ -195,39 +163,83 @@ document.addEventListener("keydown", function(e) {
 </header>
 <!-- Bento Grid of Exam Cards -->
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
-<!-- Physics Paper 1 -->
-<a href="/ExamQuestionsPhysicsP1TzAB.html" class="block">
-  <article class="bg-white border border-outline-variant rounded-[24px] p-card-padding shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-1px_rgba(0,0,0,0.03)] hover:border-slate-300 hover:shadow-lg transition-all flex flex-col group cursor-pointer">
+<!-- Physics Paper 1 - Timezone Selector -->
+<div class="bg-white border border-outline-variant rounded-[24px] p-card-padding shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-1px_rgba(0,0,0,0.03)] transition-all flex flex-col">
+  
+  <div class="flex justify-between items-start mb-4">
+    <div class="bg-slate-50 p-2 rounded-lg">
+      <span class="material-symbols-outlined text-slate-600">science</span>
+    </div>
+    <span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase px-2 py-1 rounded">
+      Secured
+    </span>
+  </div>
+
+  <h2 class="font-headline-md text-headline-md text-slate-900 mb-stack-sm">
+    Physics Paper 1
+  </h2>
+
+  <p class="text-body-md font-body-md text-slate-500 mb-stack-md">
+    Select your timezone below. Only the first 20 questions are verified.
+  </p>
+
+  <!-- Timezone Selection Row - Only the 6 composite zones -->
+  <div class="flex flex-wrap gap-1.5 mt-auto mb-4">
+    <button data-zone="1A-B" data-file="/ExamPhysicsZone1AB.html" class="zone-option bg-[#1e293b] text-white text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200 transition-all">Zone 1A-B</button>
+    <button data-zone="1C" data-file="/ExamPhysicsZone1C.html" class="zone-option bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200 hover:bg-slate-100 transition-all">Zone 1C</button>
+    <button data-zone="2A" data-file="/ExamPhysicsZone2A.html" class="zone-option bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200 hover:bg-slate-100 transition-all">Zone 2A</button>
+    <button data-zone="2B-C" data-file="/ExamPhysicsZone2BC.html" class="zone-option bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200 hover:bg-slate-100 transition-all">Zone 2B-C</button>
+    <button data-zone="3A-B" data-file="/ExamPhysicsZone3AB.html" class="zone-option bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200 hover:bg-slate-100 transition-all">Zone 3A-B</button>
+    <button data-zone="3C" data-file="/ExamPhysicsZone3C.html" class="zone-option bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200 hover:bg-slate-100 transition-all">Zone 3C</button>
+  </div>
+
+  <!-- Dynamic Link -->
+  <a id="examLink" href="/ExamPhysicsZone1AB.html" class="block mt-2">
+    <div class="bg-slate-50 rounded-xl p-3 text-center text-sm text-slate-600 hover:bg-slate-100 transition-colors">
+      <span class="material-symbols-outlined text-sm align-middle mr-1">play_circle</span>
+      Start <span id="selectedZoneLabel">Zone 1A-B</span> Exam →
+    </div>
+  </a>
+
+</div>
+
+<script>
+  (function() {
+    const zoneButtons = document.querySelectorAll('.zone-option');
+    const examLink = document.getElementById('examLink');
+    const selectedLabel = document.getElementById('selectedZoneLabel');
     
-    <div class="flex justify-between items-start mb-4">
-      <div class="bg-slate-50 p-2 rounded-lg">
-        <span class="material-symbols-outlined text-slate-600">science</span>
-      </div>
-      <span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase px-2 py-1 rounded">
-        Secured
-      </span>
-    </div>
-
-    <h2 class="font-headline-md text-headline-md text-slate-900 mb-stack-sm group-hover:text-slate-700 transition-colors">
-      Physics Paper 1
-    </h2>
-
-    <p class="text-body-md font-body-md text-slate-500 mb-stack-md">
-      Only the first 20 questions are verified.
-    </p>
-
-    <div class="flex flex-wrap gap-1.5 mt-auto">
-      <span class="bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200">Zone 1A</span>
-      <span class="bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200">Zone 1B</span>
-      <span class="bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200">Zone 1C</span>
-      <span class="bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200">Zone 2A</span>
-      <span class="bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200">Zone 2B</span>
-      <span class="bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200">Zone 2C</span>
-      <span class="bg-slate-100 text-slate-400 text-[11px] font-medium px-2.5 py-1 rounded-full">+3 More</span>
-    </div>
-
-  </article>
-</a>
+    function updateSelectedZone(zone, file, buttonElement) {
+      examLink.href = file;
+      selectedLabel.textContent = zone;
+      
+      zoneButtons.forEach(btn => {
+        btn.classList.remove('bg-[#1e293b]', 'text-white');
+        btn.classList.add('bg-[#F8FAFC]', 'text-slate-600');
+      });
+      buttonElement.classList.remove('bg-[#F8FAFC]', 'text-slate-600');
+      buttonElement.classList.add('bg-[#1e293b]', 'text-white');
+    }
+    
+    zoneButtons.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const zone = this.getAttribute('data-zone');
+        const file = this.getAttribute('data-file');
+        if (zone && file) {
+          updateSelectedZone(zone, file, this);
+        }
+      });
+    });
+    
+    // Default active: Zone 1A-B
+    const defaultButton = document.querySelector('.zone-option[data-zone="1A-B"]');
+    if (defaultButton) {
+      defaultButton.classList.remove('bg-[#F8FAFC]', 'text-slate-600');
+      defaultButton.classList.add('bg-[#1e293b]', 'text-white');
+    }
+  })();
+</script>
 <style>
 .locked-card {
   position: relative;
