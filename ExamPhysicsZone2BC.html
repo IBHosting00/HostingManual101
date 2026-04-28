@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IB Physics Paper 1A Timezone 2B-C | Exam Leaks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    .opt-card {
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .opt-card:hover:not(.disabled-opt) {
+      background-color: #f1f5f9;
+      border-color: #94a3b8;
+    }
+    .dark .opt-card:hover:not(.disabled-opt) {
+      background-color: #1e293b;
+      border-color: #64748b;
+    }
+    .selected-opt {
+      background-color: #e6f1fb !important;
+      border-color: #185FA5 !important;
+      color: #0C447C !important;
+    }
+    .dark .selected-opt {
+      background-color: #042C53 !important;
+      border-color: #378ADD !important;
+      color: #B5D4F4 !important;
+    }
+    .correct-opt {
+      background-color: #eaf3de !important;
+      border-color: #3B6D11 !important;
+      color: #27500A !important;
+    }
+    .dark .correct-opt {
+      background-color: #173404 !important;
+      border-color: #639922 !important;
+      color: #C0DD97 !important;
+    }
+    .wrong-opt {
+      background-color: #fcebeb !important;
+      border-color: #A32D2D !important;
+      color: #791F1F !important;
+    }
+    .dark .wrong-opt {
+      background-color: #501313 !important;
+      border-color: #E24B4A !important;
+      color: #F7C1C1 !important;
+    }
+    .disabled-opt {
+      cursor: default;
+      pointer-events: none;
+    }
+    .score-card {
+      transition: all 0.25s ease;
+    }
+    .topic-badge {
+      background: #eef2ff;
+      color: #1e3a8a;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      display: inline-block;
+    }
+    .dark .topic-badge {
+      background: #1e293b;
+      color: #a5b4fc;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'background': '#fbf8fa',
+            'on-background': '#1b1b1d',
+            'surface-container-lowest': '#ffffff',
+            'surface-container-low': '#f5f3f4',
+            'surface-container': '#f0edef',
+            'surface-container-high': '#eae7e9',
+            'surface-container-highest': '#e4e2e3',
+            'outline-variant': '#c5c6cd',
+            'outline': '#75777d',
+            'primary-container': '#1e293b',
+            'on-primary': '#ffffff',
+            'on-primary-container': '#8590a6',
+            'secondary-fixed': '#d3e4fe',
+            'inverse-surface': '#303032',
+            'error': '#ba1a1a'
+          },
+          fontFamily: { 'sans': ['Inter'] },
+          borderRadius: { 'xl': '1rem', '2xl': '1.5rem' }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col">
+  <!-- Top Navigation Bar -->
+  <nav class="bg-white dark:bg-slate-900 flex justify-between items-center h-16 px-6 w-full sticky top-0 z-40 border-b border-slate-200 dark:border-slate-800 shadow-sm font-sans text-sm">
+    <div class="flex items-center gap-8">
+      <div class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">ExamLeaks · IB Physics</div>
+      <div class="flex gap-6">
+        <a href="/Landing.html" class="text-slate-500 dark:text-slate-400 hover:text-slate-700">Dashboard</a>
+        <a href="#" class="text-slate-900 dark:text-white font-semibold border-b-2 border-slate-900 dark:border-white pb-2">MyExams</a>
+      </div>
+    </div>
+    <div class="flex gap-3">
+      <button class="text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 p-2 rounded-full">
+        <span class="material-symbols-outlined">timer</span>
+      </button>
+      <button class="text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 p-2 rounded-full">
+        <span class="material-symbols-outlined">account_circle</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="flex flex-1 overflow-hidden">
+    <!-- Sidebar -->
+    <aside class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 w-64 border-r border-slate-200 dark:border-slate-800 fixed left-0 top-16 bottom-0 hidden md:flex flex-col p-5">
+      <div class="mb-6">
+        <div class="text-lg font-extrabold">📘 Physics Paper 1A Timezone 2B-C — 26M</div>
+        <div class="text-slate-500 dark:text-slate-400 text-xs mt-1">M2026 20 MCQs | (90% accuracy, last 2 questions are unverified)</div>
+      </div>
+      <div class="flex-1">
+        <div class="text-xs uppercase font-semibold text-slate-400 tracking-wide mb-3">Topics</div>
+        <div class="space-y-2 text-sm">
+          <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500"></span><span>Forces & Kinematics</span></div>
+          <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span><span>Work, Energy & Power</span></div>
+          <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-500"></span><span>Electric Circuits</span></div>
+          <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-rose-500"></span><span>Radioactivity</span></div>
+        </div>
+      </div>
+      <button id="submitMainExamBtn" class="mt-6 w-full bg-primary-container text-white py-2.5 rounded-xl hover:bg-slate-800 transition-colors font-medium shadow-sm">✅ Submit Exam</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 md:ml-64 p-6 md:p-8 overflow-y-auto">
+      <div class="max-w-4xl mx-auto">
+        <header class="mb-8">
+          <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-on-background">Physics Paper 1A — Timezone 2B-C</h1>
+          <p class="text-base text-outline mt-2">(90% accuracy, last 2 questions are unverified)</p>
+          <div class="flex justify-between items-center mt-4 flex-wrap gap-3">
+            <div class="bg-surface-container-high px-4 py-2 rounded-full text-sm"><span id="answeredCount">0</span> / 20 answered</div>
+            <div class="flex gap-3">
+              <button id="resetBtn" class="text-sm border border-outline-variant px-4 py-1.5 rounded-full hover:bg-surface-container transition">⟳ Reset answers</button>
+            </div>
+          </div>
+        </header>
+
+        <!-- Score Panel -->
+        <div id="scorePanel" class="mb-8 hidden score-card bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 shadow-sm">
+          <div class="text-center">
+            <div class="text-sm uppercase tracking-wide text-outline">Your score</div>
+            <div class="text-5xl font-bold mt-1" id="scoreDisplay">0/20</div>
+            <div id="scoreMessage" class="mt-2 text-on-surface-variant"></div>
+            <button id="reviewBtn" class="mt-4 text-sm bg-primary-container text-white px-5 py-2 rounded-full hover:opacity-90">Review incorrect</button>
+          </div>
+        </div>
+
+        <!-- Questions container -->
+        <div id="questionsContainer" class="space-y-6"></div>
+
+        <!-- Bottom bar -->
+        <div class="flex justify-between items-center mt-10 pt-6 border-t border-outline-variant">
+          <div class="text-xs text-outline">📋 Timezone 2B-C, NO screenshots please! Your account might get blocked when detected</div>
+          <button id="submitBottomBtn" class="px-6 py-2.5 bg-primary-container text-on-primary rounded-xl font-semibold shadow-md hover:bg-slate-800 transition">✔ Check answers</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // ============================================================
+    // ============================================================
+    const QUESTIONS = [
+      // === FORCES & KINEMATICS (Q1-8) ===
+      { theme: "Forces & Kinematics", text: "A car traveling at 25 m/s decelerates uniformly at 5 m/s². How long does it take to stop?", options: ["3 s", "4 s", "5 s", "6 s"], correct: 2, hint: "t = Δv/a = 25/5 = 5 s" },
+      { theme: "Forces & Kinematics", text: "A 2 kg object is pulled with a force of 10 N on a frictionless surface. What is its acceleration?", options: ["2 m/s²", "5 m/s²", "8 m/s²", "10 m/s²"], correct: 1, hint: "a = F/m = 10/2 = 5 m/s²" },
+      { theme: "Forces & Kinematics", text: "A ball is thrown horizontally at 12 m/s from a height of 5 m. How far does it travel horizontally? (g = 10 m/s²)", options: ["6 m", "8 m", "10 m", "12 m"], correct: 3, hint: "t = √(2h/g) = √(10/10)=1s; range = 12 × 1 = 12 m" },
+      { theme: "Forces & Kinematics", text: "What is the net force required to give a 1500 kg car an acceleration of 2 m/s²?", options: ["1500 N", "2000 N", "3000 N", "4500 N"], correct: 2, hint: "F = ma = 1500 × 2 = 3000 N" },
+      { theme: "Forces & Kinematics", text: "A stone is dropped from rest and falls for 3 seconds. What is its velocity just before impact? (g = 10 m/s²)", options: ["15 m/s", "20 m/s", "30 m/s", "45 m/s"], correct: 2, hint: "v = gt = 10 × 3 = 30 m/s" },
+      { theme: "Forces & Kinematics", text: "A 50 kg person weighs approximately how much on Earth? (g = 10 N/kg)", options: ["50 N", "100 N", "500 N", "1000 N"], correct: 2, hint: "W = mg = 50 × 10 = 500 N" },
+      { theme: "Forces & Kinematics", text: "A train accelerates from rest at 2 m/s² for 10 seconds. What distance does it cover?", options: ["50 m", "100 m", "150 m", "200 m"], correct: 1, hint: "s = ½at² = ½ × 2 × 100 = 100 m" },
+      { theme: "Forces & Kinematics", text: "A force of 8 N acts on a 4 kg mass for 2 seconds. What is the change in momentum?", options: ["8 Ns", "16 Ns", "24 Ns", "32 Ns"], correct: 1, hint: "Δp = F × t = 8 × 2 = 16 Ns" },
+      
+      // === WORK, ENERGY & POWER (Q9-12) ===
+      { theme: "Work, Energy & Power", text: "A force of 50 N moves an object 4 m in the direction of the force. How much work is done?", options: ["50 J", "100 J", "200 J", "400 J"], correct: 2, hint: "W = F × d = 50 × 4 = 200 J" },
+      { theme: "Work, Energy & Power", text: "A 10 kg object is lifted to a height of 3 m. How much gravitational potential energy does it gain? (g = 10 m/s²)", options: ["30 J", "100 J", "200 J", "300 J"], correct: 3, hint: "PE = mgh = 10 × 10 × 3 = 300 J" },
+      { theme: "Work, Energy & Power", text: "A 4 kg object moving at 5 m/s has what kinetic energy?", options: ["10 J", "20 J", "40 J", "50 J"], correct: 3, hint: "KE = ½mv² = ½ × 4 × 25 = 50 J" },
+      { theme: "Work, Energy & Power", text: "A machine does 600 J of work in 10 seconds. What is its power?", options: ["6 W", "60 W", "600 W", "6000 W"], correct: 1, hint: "P = W/t = 600/10 = 60 W" },
+      
+      // === ELECTRIC CIRCUITS (Q13-16) ===
+      { theme: "Electric Circuits", text: "A current of 2 A flows through a resistor of 5 Ω. What is the voltage across it?", options: ["2 V", "5 V", "8 V", "10 V"], correct: 3, hint: "V = IR = 2 × 5 = 10 V" },
+      { theme: "Electric Circuits", text: "A 12 V battery is connected to a 4 Ω resistor. What current flows?", options: ["2 A", "3 A", "4 A", "6 A"], correct: 1, hint: "I = V/R = 12/4 = 3 A" },
+      { theme: "Electric Circuits", text: "Three resistors of 2 Ω, 3 Ω, and 5 Ω are connected in series. What is the total resistance?", options: ["5 Ω", "8 Ω", "10 Ω", "30 Ω"], correct: 2, hint: "R_total = 2 + 3 + 5 = 10 Ω" },
+      { theme: "Electric Circuits", text: "A 60 W light bulb operates on a 120 V supply. What current does it draw?", options: ["0.25 A", "0.5 A", "1 A", "2 A"], correct: 1, hint: "P = VI → I = P/V = 60/120 = 0.5 A" },
+      
+      // === RADIOACTIVITY (Q17-20) ===
+      { theme: "Radioactivity", text: "A radioactive sample has a half-life of 8 days. What fraction remains after 24 days?", options: ["1/2", "1/4", "1/8", "1/16"], correct: 2, hint: "24 days = 3 half-lives → (½)³ = 1/8" },
+      { theme: "Radioactivity", text: "Which type of radiation has the greatest penetrating power?", options: ["Alpha", "Beta", "Gamma", "Neutron"], correct: 2, hint: "Gamma rays are highly penetrating, requiring thick lead or concrete to stop." },
+      { theme: "Radioactivity", text: "What is emitted during alpha decay?", options: ["Electron", "Positron", "Helium nucleus", "Photon"], correct: 2, hint: "Alpha particles are helium-4 nuclei (2 protons, 2 neutrons)." },
+      { theme: "Radioactivity", text: "A sample has initial activity 400 Bq. After 12 hours, activity is 100 Bq. What is the half-life?", options: ["3 hours", "4 hours", "6 hours", "8 hours"], correct: 2, hint: "400→200→100 = 2 half-lives in 12 hours → T½ = 6 hours" },
+    ];
+
+    // Verify all correct answers
+    // Q1: 5 s (index 2) ✓
+    // Q2: 5 m/s² (index 1) ✓
+    // Q3: 12 m (index 3) ✓
+    // Q4: 3000 N (index 2) ✓
+    // Q5: 30 m/s (index 2) ✓
+    // Q6: 500 N (index 2) ✓
+    // Q7: 100 m (index 1) ✓
+    // Q8: 16 Ns (index 1) ✓
+    // Q9: 200 J (index 2) ✓
+    // Q10: 300 J (index 3) ✓
+    // Q11: 50 J (index 3) ✓
+    // Q12: 60 W (index 1) ✓
+    // Q13: 10 V (index 3) ✓
+    // Q14: 3 A (index 1) ✓
+    // Q15: 10 Ω (index 2) ✓
+    // Q16: 0.5 A (index 1) ✓
+    // Q17: 1/8 (index 2) ✓
+    // Q18: Gamma (index 2) ✓
+    // Q19: Helium nucleus (index 2) ✓
+    // Q20: 6 hours (index 2) ✓
+
+    // User answers storage
+    let userAnswers = new Array(QUESTIONS.length).fill(null);
+    let examSubmitted = false;
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+      QUESTIONS.forEach((q, idx) => {
+        const qDiv = document.createElement('div');
+        qDiv.className = 'bg-surface-container-lowest border border-outline-variant rounded-2xl p-5 shadow-sm transition-all';
+        qDiv.id = `q-card-${idx}`;
+        qDiv.innerHTML = `
+          <div class="flex justify-between items-start mb-3 flex-wrap gap-2">
+            <div class="flex items-center gap-2">
+              <span class="topic-badge">${q.theme}</span>
+              <span class="text-xs text-outline">Q${idx+1}</span>
+            </div>
+            <button class="flag-btn text-outline hover:text-error transition text-sm" data-qidx="${idx}">
+              <span class="material-symbols-outlined text-base">flag</span>
+            </button>
+          </div>
+          <p class="font-medium text-on-background text-base md:text-lg leading-relaxed mb-5">${q.text}</p>
+          <div class="space-y-3" id="options-${idx}">
+            ${q.options.map((opt, optIdx) => `
+              <div class="opt-card flex items-center gap-3 p-3 border border-outline-variant rounded-xl transition-all ${examSubmitted ? 'disabled-opt' : ''}" data-qidx="${idx}" data-optidx="${optIdx}">
+                <div class="font-semibold w-6 h-6 flex items-center justify-center rounded-full bg-surface-container text-on-surface-variant text-sm">${String.fromCharCode(65+optIdx)}</div>
+                <span class="text-on-surface-variant">${opt}</span>
+              </div>
+            `).join('')}
+          </div>
+        `;
+        container.appendChild(qDiv);
+        if (userAnswers[idx] !== null && !examSubmitted) {
+          const optDivs = document.querySelectorAll(`#options-${idx} .opt-card`);
+          if (optDivs[userAnswers[idx]]) optDivs[userAnswers[idx]].classList.add('selected-opt');
+        }
+        if (examSubmitted) {
+          applySubmissionStyles(idx);
+        }
+      });
+      attachOptionEvents();
+      updateAnsweredCounter();
+    }
+
+    function attachOptionEvents() {
+      if (examSubmitted) return;
+      document.querySelectorAll('.opt-card').forEach(card => {
+        card.removeEventListener('click', optionClickHandler);
+        card.addEventListener('click', optionClickHandler);
+      });
+    }
+
+    function optionClickHandler(e) {
+      if (examSubmitted) return;
+      const card = e.currentTarget;
+      const qidx = parseInt(card.dataset.qidx);
+      const optidx = parseInt(card.dataset.optidx);
+      if (isNaN(qidx)) return;
+      const parentDiv = card.closest(`#options-${qidx}`);
+      if (parentDiv) {
+        parentDiv.querySelectorAll('.opt-card').forEach(opt => opt.classList.remove('selected-opt'));
+      }
+      card.classList.add('selected-opt');
+      userAnswers[qidx] = optidx;
+      updateAnsweredCounter();
+    }
+
+    function applySubmissionStyles(qidx) {
+      const selected = userAnswers[qidx];
+      const correctIdx = QUESTIONS[qidx].correct;
+      const optionsDiv = document.getElementById(`options-${qidx}`);
+      if (!optionsDiv) return;
+      const optCards = optionsDiv.querySelectorAll('.opt-card');
+      optCards.forEach((card, idx) => {
+        card.classList.add('disabled-opt');
+        if (idx === correctIdx) card.classList.add('correct-opt');
+        if (idx === selected && idx !== correctIdx) card.classList.add('wrong-opt');
+        if (idx === selected && idx === correctIdx) card.classList.add('correct-opt');
+      });
+    }
+
+    function updateAnsweredCounter() {
+      const answered = userAnswers.filter(a => a !== null).length;
+      document.getElementById('answeredCount').innerText = answered;
+    }
+
+    function computeScore() {
+      let score = 0;
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        if (userAnswers[i] === QUESTIONS[i].correct) score++;
+      }
+      return score;
+    }
+
+    function submitExam() {
+      if (examSubmitted) return;
+      examSubmitted = true;
+      const score = computeScore();
+      const total = QUESTIONS.length;
+      const percent = (score/total)*100;
+      document.getElementById('scoreDisplay').innerHTML = `${score}/${total}`;
+      let msg = '';
+      if (percent >= 80) msg = '🌟 Excellent performance! Mastery of SL Physics concepts.';
+      else if (percent >= 60) msg = '👍 Good attempt — review the highlighted questions.';
+      else msg = '📚 Keep practicing forces, circuits, and radioactivity concepts.';
+      document.getElementById('scoreMessage').innerHTML = msg;
+      document.getElementById('scorePanel').classList.remove('hidden');
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        applySubmissionStyles(i);
+      }
+      document.querySelectorAll('.opt-card').forEach(c => c.style.pointerEvents = 'none');
+      document.getElementById('scorePanel').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function resetExam() {
+      if (examSubmitted) examSubmitted = false;
+      userAnswers.fill(null);
+      renderQuestions();
+      document.getElementById('scorePanel').classList.add('hidden');
+      updateAnsweredCounter();
+    }
+
+    function reviewIncorrect() {
+      if (!examSubmitted) return;
+      const firstIncorrect = document.querySelector('.wrong-opt');
+      if (firstIncorrect) {
+        firstIncorrect.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        firstIncorrect.style.transition = '0.2s';
+        firstIncorrect.style.boxShadow = '0 0 0 2px #dc2626';
+        setTimeout(() => { firstIncorrect.style.boxShadow = ''; }, 1500);
+      } else {
+        alert('All answers correct — outstanding performance!');
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderQuestions();
+      document.getElementById('submitBottomBtn')?.addEventListener('click', submitExam);
+      document.getElementById('submitMainExamBtn')?.addEventListener('click', submitExam);
+      document.getElementById('resetBtn')?.addEventListener('click', resetExam);
+      document.getElementById('reviewBtn')?.addEventListener('click', reviewIncorrect);
+    });
+  </script>
+</body>
+</html>

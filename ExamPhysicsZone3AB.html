@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IB Physics Paper 1A Timezone 3A-B | Exam Leaks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    .opt-card {
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .opt-card:hover:not(.disabled-opt) {
+      background-color: #f1f5f9;
+      border-color: #94a3b8;
+    }
+    .dark .opt-card:hover:not(.disabled-opt) {
+      background-color: #1e293b;
+      border-color: #64748b;
+    }
+    .selected-opt {
+      background-color: #e6f1fb !important;
+      border-color: #185FA5 !important;
+      color: #0C447C !important;
+    }
+    .dark .selected-opt {
+      background-color: #042C53 !important;
+      border-color: #378ADD !important;
+      color: #B5D4F4 !important;
+    }
+    .correct-opt {
+      background-color: #eaf3de !important;
+      border-color: #3B6D11 !important;
+      color: #27500A !important;
+    }
+    .dark .correct-opt {
+      background-color: #173404 !important;
+      border-color: #639922 !important;
+      color: #C0DD97 !important;
+    }
+    .wrong-opt {
+      background-color: #fcebeb !important;
+      border-color: #A32D2D !important;
+      color: #791F1F !important;
+    }
+    .dark .wrong-opt {
+      background-color: #501313 !important;
+      border-color: #E24B4A !important;
+      color: #F7C1C1 !important;
+    }
+    .disabled-opt {
+      cursor: default;
+      pointer-events: none;
+    }
+    .score-card {
+      transition: all 0.25s ease;
+    }
+    .topic-badge {
+      background: #eef2ff;
+      color: #1e3a8a;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      display: inline-block;
+    }
+    .dark .topic-badge {
+      background: #1e293b;
+      color: #a5b4fc;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'background': '#fbf8fa',
+            'on-background': '#1b1b1d',
+            'surface-container-lowest': '#ffffff',
+            'surface-container-low': '#f5f3f4',
+            'surface-container': '#f0edef',
+            'surface-container-high': '#eae7e9',
+            'surface-container-highest': '#e4e2e3',
+            'outline-variant': '#c5c6cd',
+            'outline': '#75777d',
+            'primary-container': '#1e293b',
+            'on-primary': '#ffffff',
+            'on-primary-container': '#8590a6',
+            'secondary-fixed': '#d3e4fe',
+            'inverse-surface': '#303032',
+            'error': '#ba1a1a'
+          },
+          fontFamily: { 'sans': ['Inter'] },
+          borderRadius: { 'xl': '1rem', '2xl': '1.5rem' }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col">
+  <!-- Top Navigation Bar -->
+  <nav class="bg-white dark:bg-slate-900 flex justify-between items-center h-16 px-6 w-full sticky top-0 z-40 border-b border-slate-200 dark:border-slate-800 shadow-sm font-sans text-sm">
+    <div class="flex items-center gap-8">
+      <div class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">ExamLeaks · IB Physics</div>
+      <div class="flex gap-6">
+        <a href="/Landing.html" class="text-slate-500 dark:text-slate-400 hover:text-slate-700">Dashboard</a>
+        <a href="#" class="text-slate-900 dark:text-white font-semibold border-b-2 border-slate-900 dark:border-white pb-2">MyExams</a>
+      </div>
+    </div>
+    <div class="flex gap-3">
+      <button class="text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 p-2 rounded-full">
+        <span class="material-symbols-outlined">timer</span>
+      </button>
+      <button class="text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 p-2 rounded-full">
+        <span class="material-symbols-outlined">account_circle</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="flex flex-1 overflow-hidden">
+    <!-- Sidebar -->
+    <aside class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 w-64 border-r border-slate-200 dark:border-slate-800 fixed left-0 top-16 bottom-0 hidden md:flex flex-col p-5">
+      <div class="mb-6">
+        <div class="text-lg font-extrabold">📘 Physics Paper 1A Timezone 3A-B — 26M</div>
+        <div class="text-slate-500 dark:text-slate-400 text-xs mt-1">M2026 20 MCQs</div>
+      </div>
+      <div class="flex-1">
+        <div class="text-xs uppercase font-semibold text-slate-400 tracking-wide mb-3">Themes</div>
+        <div class="space-y-2 text-sm">
+          <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-500"></span><span>Theme C: Waves & Optics</span></div>
+          <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span><span>Theme B: Thermal & Thermodynamics</span></div>
+          <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-purple-500"></span><span>Theme D: Fields</span></div>
+          <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-rose-500"></span><span>Theme E: Nuclear & Quantum</span></div>
+        </div>
+      </div>
+      <button id="submitMainExamBtn" class="mt-6 w-full bg-primary-container text-white py-2.5 rounded-xl hover:bg-slate-800 transition-colors font-medium shadow-sm">✅ Submit Exam</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 md:ml-64 p-6 md:p-8 overflow-y-auto">
+      <div class="max-w-4xl mx-auto">
+        <header class="mb-8">
+          <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-on-background">Physics Paper 1A — Timezone 3A-B</h1>
+          <p class="text-base text-outline mt-2">Applies to both HL & SL</p>
+          <div class="flex justify-between items-center mt-4 flex-wrap gap-3">
+            <div class="bg-surface-container-high px-4 py-2 rounded-full text-sm"><span id="answeredCount">0</span> / 20 answered</div>
+            <div class="flex gap-3">
+              <button id="resetBtn" class="text-sm border border-outline-variant px-4 py-1.5 rounded-full hover:bg-surface-container transition">⟳ Reset answers</button>
+            </div>
+          </div>
+        </header>
+
+        <!-- Score Panel -->
+        <div id="scorePanel" class="mb-8 hidden score-card bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 shadow-sm">
+          <div class="text-center">
+            <div class="text-sm uppercase tracking-wide text-outline">Your score</div>
+            <div class="text-5xl font-bold mt-1" id="scoreDisplay">0/20</div>
+            <div id="scoreMessage" class="mt-2 text-on-surface-variant"></div>
+            <button id="reviewBtn" class="mt-4 text-sm bg-primary-container text-white px-5 py-2 rounded-full hover:opacity-90">Review incorrect</button>
+          </div>
+        </div>
+
+        <!-- Questions container -->
+        <div id="questionsContainer" class="space-y-6"></div>
+
+        <!-- Bottom bar -->
+        <div class="flex justify-between items-center mt-10 pt-6 border-t border-outline-variant">
+          <div class="text-xs text-outline">📋 Timezone 3A-B, NO screenshots please! Your account might get blocked when detected</div>
+          <button id="submitBottomBtn" class="px-6 py-2.5 bg-primary-container text-on-primary rounded-xl font-semibold shadow-md hover:bg-slate-800 transition">✔ Check answers</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // ============================================================
+    // TIMEZONE 3A-B — SL Level Questions
+    // Topics: Waves & Optics, Thermal/Thermodynamics, Fields, Nuclear Physics
+    // All questions are Standard Level, accessible for both HL and SL students.
+    // ============================================================
+    const QUESTIONS = [
+      // === Waves & Optics (Q1-7) ===
+      { theme: "C — Waves & Optics", text: "A wave has a frequency of 250 Hz and a wavelength of 1.2 m. What is its speed?", options: ["200 m/s", "250 m/s", "300 m/s", "400 m/s"], correct: 2, hint: "v = fλ = 250 × 1.2 = 300 m/s" },
+      { theme: "C — Waves & Optics", text: "What is the period of a wave with frequency 500 Hz?", options: ["0.001 s", "0.002 s", "0.005 s", "0.01 s"], correct: 1, hint: "T = 1/f = 1/500 = 0.002 s" },
+      { theme: "C — Waves & Optics", text: "A sound wave in air has a speed of 340 m/s and frequency 170 Hz. What is its wavelength?", options: ["0.5 m", "1.0 m", "2.0 m", "3.0 m"], correct: 2, hint: "λ = v/f = 340/170 = 2.0 m" },
+      { theme: "C — Waves & Optics", text: "Light travels from air into water. Which property remains unchanged?", options: ["Speed", "Wavelength", "Frequency", "Direction"], correct: 2, hint: "Frequency remains constant when light passes between media." },
+      { theme: "C — Waves & Optics", text: "A student hears an echo 0.6 seconds after shouting. How far is the reflecting surface? (v_sound = 340 m/s)", options: ["102 m", "204 m", "306 m", "408 m"], correct: 0, hint: "d = v × t/2 = 340 × 0.6/2 = 340 × 0.3 = 102 m" },
+      { theme: "C — Waves & Optics", text: "What type of wave is a sound wave?", options: ["Transverse", "Longitudinal", "Electromagnetic", "Standing"], correct: 1, hint: "Sound waves are longitudinal waves where particles vibrate parallel to wave direction." },
+      { theme: "C — Waves & Optics", text: "A light ray strikes a mirror at an angle of 30° to the normal. What is the angle of reflection?", options: ["15°", "30°", "60°", "90°"], correct: 1, hint: "Angle of incidence equals angle of reflection: 30°." },
+      
+      // === Thermal & Thermodynamics (Q8-12) ===
+      { theme: "B — Thermal & Matter", text: "A 0.4 kg aluminum block (c = 900 J/kg°C) absorbs 7200 J of heat. What is its temperature rise?", options: ["10°C", "15°C", "20°C", "25°C"], correct: 2, hint: "ΔT = Q/(mc) = 7200/(0.4×900) = 7200/360 = 20°C" },
+      { theme: "B — Thermal & Matter", text: "An ideal gas at constant pressure has its volume doubled. What happens to its absolute temperature?", options: ["Halves", "Doubles", "Quadruples", "Remains same"], correct: 1, hint: "Charles' law: V₁/T₁ = V₂/T₂ → T₂ = 2T₁" },
+      { theme: "B — Thermal & Matter", text: "How much heat is released when 0.2 kg of steam at 100°C condenses to water at 100°C? (L_v = 2.26 × 10⁶ J/kg)", options: ["2.26 × 10⁵ J", "4.52 × 10⁵ J", "6.78 × 10⁵ J", "9.04 × 10⁵ J"], correct: 1, hint: "Q = mL_v = 0.2 × 2.26e6 = 4.52e5 J" },
+      { theme: "B — Thermal & Matter", text: "A gas does 150 J of work and its internal energy decreases by 50 J. How much heat is transferred?", options: ["-200 J", "-100 J", "100 J", "200 J"], correct: 0, hint: "ΔU = Q - W → -50 = Q - 150 → Q = 100 J (positive means added)" },
+      { theme: "B — Thermal & Matter", text: "The pressure of a gas at 27°C is 1.2 × 10⁵ Pa. If temperature increases to 127°C at constant volume, what is the new pressure?", options: ["1.2 × 10⁵ Pa", "1.6 × 10⁵ Pa", "2.4 × 10⁵ Pa", "3.6 × 10⁵ Pa"], correct: 1, hint: "P₁/T₁ = P₂/T₂ → 1.2e5/300 = P₂/400 → P₂ = 1.6e5 Pa" },
+      
+      // === Fields (Electric & Gravitational) (Q13-16) ===
+      { theme: "D — Fields", text: "A charge of 4 μC is placed in a uniform electric field of 500 N/C. What force does it experience?", options: ["2 × 10⁻³ N", "4 × 10⁻³ N", "6 × 10⁻³ N", "8 × 10⁻³ N"], correct: 0, hint: "F = qE = 4×10⁻⁶ × 500 = 2×10⁻³ N" },
+      { theme: "D — Fields", text: "What is the gravitational field strength at a point where a 10 kg mass experiences a force of 80 N?", options: ["4 N/kg", "6 N/kg", "8 N/kg", "10 N/kg"], correct: 2, hint: "g = F/m = 80/10 = 8 N/kg" },
+      { theme: "D — Fields", text: "Two point charges of +3 μC and -3 μC are placed 0.1 m apart. The force between them is approximately: (k = 9 × 10⁹ N m²/C²)", options: ["2.7 N attractive", "5.4 N attractive", "8.1 N attractive", "10.8 N attractive"], correct: 2, hint: "F = kq₁q₂/r² = 9e9 × (3e-6×3e-6)/(0.01) = 9e9 × 9e-12/0.01 = 8.1 N attractive" },
+      { theme: "D — Fields", text: "A 5 kg mass has a weight of 50 N on Earth. What would it weigh on a planet with gravitational field strength 4 N/kg?", options: ["12.5 N", "20 N", "40 N", "200 N"], correct: 1, hint: "W = mg = 5 × 4 = 20 N" },
+      
+      // === Nuclear & Quantum Physics (Q17-20) ===
+      { theme: "E — Nuclear & Quantum", text: "A radioactive sample has half-life 5 years. What fraction remains after 15 years?", options: ["1/2", "1/4", "1/8", "1/16"], correct: 2, hint: "15 years = 3 half-lives → (½)³ = 1/8" },
+      { theme: "E — Nuclear & Quantum", text: "What type of radiation is most easily stopped by a sheet of paper?", options: ["Alpha", "Beta", "Gamma", "Neutron"], correct: 0, hint: "Alpha particles have low penetrating power and can be stopped by paper." },
+      { theme: "E — Nuclear & Quantum", text: "In beta-minus decay, what is emitted from the nucleus?", options: ["Helium nucleus", "Electron and antineutrino", "Positron and neutrino", "High-energy photon"], correct: 1, hint: "β⁻ decay: n → p + e⁻ + ν̄ₑ" },
+      { theme: "E — Nuclear & Quantum", text: "A Geiger counter measures 800 counts per minute from a sample. After 12 minutes, it measures 200 counts per minute. What is the half-life?", options: ["3 min", "4 min", "6 min", "8 min"], correct: 2, hint: "800→400→200 = 2 half-lives in 12 min → T½ = 6 min" },
+    ];
+
+    // Fix any mis-indexed correct answers
+    // Q1: 300 m/s (index 2) ✓
+    // Q2: 0.002 s (index 1) ✓
+    // Q3: 2.0 m (index 2) ✓
+    // Q4: Frequency (index 2) ✓
+    // Q5: 102 m (index 0) ✓
+    // Q6: Longitudinal (index 1) ✓
+    // Q7: 30° (index 1) ✓
+    // Q8: 20°C (index 2) ✓
+    // Q9: Doubles (index 1) ✓
+    // Q10: 4.52e5 J (index 1) ✓
+    // Q11: 100 J (index 2? Wait: ΔU=Q-W -> -50=Q-150 -> Q=+100, but option index 2 is 100 J, correct)
+    // Q12: 1.6e5 Pa (index 1) ✓
+    // Q13: 2×10⁻³ N (index 0) ✓
+    // Q14: 8 N/kg (index 2) ✓
+    // Q15: 8.1 N (index 2) ✓
+    // Q16: 20 N (index 1) ✓
+    // Q17: 1/8 (index 2) ✓
+    // Q18: Alpha (index 0) ✓
+    // Q19: Electron and antineutrino (index 1) ✓
+    // Q20: 6 min (index 2) ✓
+
+    // Fix Q11 correct index
+    QUESTIONS[10].correct = 2;   // 100 J (index 2)
+
+    // User answers storage
+    let userAnswers = new Array(QUESTIONS.length).fill(null);
+    let examSubmitted = false;
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+      QUESTIONS.forEach((q, idx) => {
+        const qDiv = document.createElement('div');
+        qDiv.className = 'bg-surface-container-lowest border border-outline-variant rounded-2xl p-5 shadow-sm transition-all';
+        qDiv.id = `q-card-${idx}`;
+        qDiv.innerHTML = `
+          <div class="flex justify-between items-start mb-3 flex-wrap gap-2">
+            <div class="flex items-center gap-2">
+              <span class="topic-badge">${q.theme}</span>
+              <span class="text-xs text-outline">Q${idx+1}</span>
+            </div>
+            <button class="flag-btn text-outline hover:text-error transition text-sm" data-qidx="${idx}">
+              <span class="material-symbols-outlined text-base">flag</span>
+            </button>
+          </div>
+          <p class="font-medium text-on-background text-base md:text-lg leading-relaxed mb-5">${q.text}</p>
+          <div class="space-y-3" id="options-${idx}">
+            ${q.options.map((opt, optIdx) => `
+              <div class="opt-card flex items-center gap-3 p-3 border border-outline-variant rounded-xl transition-all ${examSubmitted ? 'disabled-opt' : ''}" data-qidx="${idx}" data-optidx="${optIdx}">
+                <div class="font-semibold w-6 h-6 flex items-center justify-center rounded-full bg-surface-container text-on-surface-variant text-sm">${String.fromCharCode(65+optIdx)}</div>
+                <span class="text-on-surface-variant">${opt}</span>
+              </div>
+            `).join('')}
+          </div>
+        `;
+        container.appendChild(qDiv);
+        if (userAnswers[idx] !== null && !examSubmitted) {
+          const optDivs = document.querySelectorAll(`#options-${idx} .opt-card`);
+          if (optDivs[userAnswers[idx]]) optDivs[userAnswers[idx]].classList.add('selected-opt');
+        }
+        if (examSubmitted) {
+          applySubmissionStyles(idx);
+        }
+      });
+      attachOptionEvents();
+      updateAnsweredCounter();
+    }
+
+    function attachOptionEvents() {
+      if (examSubmitted) return;
+      document.querySelectorAll('.opt-card').forEach(card => {
+        card.removeEventListener('click', optionClickHandler);
+        card.addEventListener('click', optionClickHandler);
+      });
+    }
+
+    function optionClickHandler(e) {
+      if (examSubmitted) return;
+      const card = e.currentTarget;
+      const qidx = parseInt(card.dataset.qidx);
+      const optidx = parseInt(card.dataset.optidx);
+      if (isNaN(qidx)) return;
+      const parentDiv = card.closest(`#options-${qidx}`);
+      if (parentDiv) {
+        parentDiv.querySelectorAll('.opt-card').forEach(opt => opt.classList.remove('selected-opt'));
+      }
+      card.classList.add('selected-opt');
+      userAnswers[qidx] = optidx;
+      updateAnsweredCounter();
+    }
+
+    function applySubmissionStyles(qidx) {
+      const selected = userAnswers[qidx];
+      const correctIdx = QUESTIONS[qidx].correct;
+      const optionsDiv = document.getElementById(`options-${qidx}`);
+      if (!optionsDiv) return;
+      const optCards = optionsDiv.querySelectorAll('.opt-card');
+      optCards.forEach((card, idx) => {
+        card.classList.add('disabled-opt');
+        if (idx === correctIdx) card.classList.add('correct-opt');
+        if (idx === selected && idx !== correctIdx) card.classList.add('wrong-opt');
+        if (idx === selected && idx === correctIdx) card.classList.add('correct-opt');
+      });
+    }
+
+    function updateAnsweredCounter() {
+      const answered = userAnswers.filter(a => a !== null).length;
+      document.getElementById('answeredCount').innerText = answered;
+    }
+
+    function computeScore() {
+      let score = 0;
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        if (userAnswers[i] === QUESTIONS[i].correct) score++;
+      }
+      return score;
+    }
+
+    function submitExam() {
+      if (examSubmitted) return;
+      examSubmitted = true;
+      const score = computeScore();
+      const total = QUESTIONS.length;
+      const percent = (score/total)*100;
+      document.getElementById('scoreDisplay').innerHTML = `${score}/${total}`;
+      let msg = '';
+      if (percent >= 80) msg = '🌟 Excellent! Physics mastery confirmed.';
+      else if (percent >= 60) msg = '👍 Good attempt — review the highlighted questions.';
+      else msg = '📚 Keep practicing waves, fields, and nuclear concepts.';
+      document.getElementById('scoreMessage').innerHTML = msg;
+      document.getElementById('scorePanel').classList.remove('hidden');
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        applySubmissionStyles(i);
+      }
+      document.querySelectorAll('.opt-card').forEach(c => c.style.pointerEvents = 'none');
+      document.getElementById('scorePanel').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function resetExam() {
+      if (examSubmitted) examSubmitted = false;
+      userAnswers.fill(null);
+      renderQuestions();
+      document.getElementById('scorePanel').classList.add('hidden');
+      updateAnsweredCounter();
+    }
+
+    function reviewIncorrect() {
+      if (!examSubmitted) return;
+      const firstIncorrect = document.querySelector('.wrong-opt');
+      if (firstIncorrect) {
+        firstIncorrect.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        firstIncorrect.style.transition = '0.2s';
+        firstIncorrect.style.boxShadow = '0 0 0 2px #dc2626';
+        setTimeout(() => { firstIncorrect.style.boxShadow = ''; }, 1500);
+      } else {
+        alert('All answers correct — outstanding performance!');
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderQuestions();
+      document.getElementById('submitBottomBtn')?.addEventListener('click', submitExam);
+      document.getElementById('submitMainExamBtn')?.addEventListener('click', submitExam);
+      document.getElementById('resetBtn')?.addEventListener('click', resetExam);
+      document.getElementById('reviewBtn')?.addEventListener('click', reviewIncorrect);
+    });
+  </script>
+</body>
+</html>

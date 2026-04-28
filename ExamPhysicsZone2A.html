@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IB Physics Paper 1A Timezone 2A | Exam Leaks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    .opt-card {
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .opt-card:hover:not(.disabled-opt) {
+      background-color: #f1f5f9;
+      border-color: #94a3b8;
+    }
+    .dark .opt-card:hover:not(.disabled-opt) {
+      background-color: #1e293b;
+      border-color: #64748b;
+    }
+    .selected-opt {
+      background-color: #e6f1fb !important;
+      border-color: #185FA5 !important;
+      color: #0C447C !important;
+    }
+    .dark .selected-opt {
+      background-color: #042C53 !important;
+      border-color: #378ADD !important;
+      color: #B5D4F4 !important;
+    }
+    .correct-opt {
+      background-color: #eaf3de !important;
+      border-color: #3B6D11 !important;
+      color: #27500A !important;
+    }
+    .dark .correct-opt {
+      background-color: #173404 !important;
+      border-color: #639922 !important;
+      color: #C0DD97 !important;
+    }
+    .wrong-opt {
+      background-color: #fcebeb !important;
+      border-color: #A32D2D !important;
+      color: #791F1F !important;
+    }
+    .dark .wrong-opt {
+      background-color: #501313 !important;
+      border-color: #E24B4A !important;
+      color: #F7C1C1 !important;
+    }
+    .disabled-opt {
+      cursor: default;
+      pointer-events: none;
+    }
+    .score-card {
+      transition: all 0.25s ease;
+    }
+    .topic-badge {
+      background: #eef2ff;
+      color: #1e3a8a;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      display: inline-block;
+    }
+    .dark .topic-badge {
+      background: #1e293b;
+      color: #a5b4fc;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'background': '#fbf8fa',
+            'on-background': '#1b1b1d',
+            'surface-container-lowest': '#ffffff',
+            'surface-container-low': '#f5f3f4',
+            'surface-container': '#f0edef',
+            'surface-container-high': '#eae7e9',
+            'surface-container-highest': '#e4e2e3',
+            'outline-variant': '#c5c6cd',
+            'outline': '#75777d',
+            'primary-container': '#1e293b',
+            'on-primary': '#ffffff',
+            'on-primary-container': '#8590a6',
+            'secondary-fixed': '#d3e4fe',
+            'inverse-surface': '#303032',
+            'error': '#ba1a1a'
+          },
+          fontFamily: { 'sans': ['Inter'] },
+          borderRadius: { 'xl': '1rem', '2xl': '1.5rem' }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col">
+  <!-- Top Navigation Bar -->
+  <nav class="bg-white dark:bg-slate-900 flex justify-between items-center h-16 px-6 w-full sticky top-0 z-40 border-b border-slate-200 dark:border-slate-800 shadow-sm font-sans text-sm">
+    <div class="flex items-center gap-8">
+      <div class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">ExamLeaks · IB Physics</div>
+      <div class="flex gap-6">
+        <a href="/Landing.html" class="text-slate-500 dark:text-slate-400 hover:text-slate-700">Dashboard</a>
+        <a href="#" class="text-slate-900 dark:text-white font-semibold border-b-2 border-slate-900 dark:border-white pb-2">MyExams</a>
+      </div>
+    </div>
+    <div class="flex gap-3">
+      <button class="text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 p-2 rounded-full">
+        <span class="material-symbols-outlined">timer</span>
+      </button>
+      <button class="text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 p-2 rounded-full">
+        <span class="material-symbols-outlined">account_circle</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="flex flex-1 overflow-hidden">
+    <!-- Sidebar -->
+    <aside class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 w-64 border-r border-slate-200 dark:border-slate-800 fixed left-0 top-16 bottom-0 hidden md:flex flex-col p-5">
+      <div class="mb-6">
+        <div class="text-lg font-extrabold">📘 Physics Paper 1A Timezone 2A — 26M</div>
+        <div class="text-slate-500 dark:text-slate-400 text-xs mt-1">M2026 20 MCQs</div>
+      </div>
+      <div class="flex-1">
+        <div class="text-xs uppercase font-semibold text-slate-400 tracking-wide mb-3">Themes</div>
+        <div class="space-y-2 text-sm">
+          <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500"></span><span>Theme A: Motion & Forces</span></div>
+          <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span><span>Theme B: Thermal & Matter</span></div>
+          <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-500"></span><span>Theme C: Waves & Sound</span></div>
+        </div>
+      </div>
+      <button id="submitMainExamBtn" class="mt-6 w-full bg-primary-container text-white py-2.5 rounded-xl hover:bg-slate-800 transition-colors font-medium shadow-sm">✅ Submit Exam</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 md:ml-64 p-6 md:p-8 overflow-y-auto">
+      <div class="max-w-4xl mx-auto">
+        <header class="mb-8">
+          <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-on-background">Physics Paper 1A — Timezone 2A</h1>
+          <p class="text-base text-outline mt-2">Applies to both HL & SL</p>
+          <div class="flex justify-between items-center mt-4 flex-wrap gap-3">
+            <div class="bg-surface-container-high px-4 py-2 rounded-full text-sm"><span id="answeredCount">0</span> / 20 answered</div>
+            <div class="flex gap-3">
+              <button id="resetBtn" class="text-sm border border-outline-variant px-4 py-1.5 rounded-full hover:bg-surface-container transition">⟳ Reset answers</button>
+            </div>
+          </div>
+        </header>
+
+        <!-- Score Panel -->
+        <div id="scorePanel" class="mb-8 hidden score-card bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 shadow-sm">
+          <div class="text-center">
+            <div class="text-sm uppercase tracking-wide text-outline">Your score</div>
+            <div class="text-5xl font-bold mt-1" id="scoreDisplay">0/20</div>
+            <div id="scoreMessage" class="mt-2 text-on-surface-variant"></div>
+            <button id="reviewBtn" class="mt-4 text-sm bg-primary-container text-white px-5 py-2 rounded-full hover:opacity-90">Review incorrect</button>
+          </div>
+        </div>
+
+        <!-- Questions container -->
+        <div id="questionsContainer" class="space-y-6"></div>
+
+        <!-- Bottom bar -->
+        <div class="flex justify-between items-center mt-10 pt-6 border-t border-outline-variant">
+          <div class="text-xs text-outline">📋 Timezone 2A, NO screenshots please! Your account might get blocked when detected</div>
+          <button id="submitBottomBtn" class="px-6 py-2.5 bg-primary-container text-on-primary rounded-xl font-semibold shadow-md hover:bg-slate-800 transition">✔ Check answers</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // ============================================================
+    // TIMEZONE 2A — Simple questions covering Themes A, B, C
+    // All questions are accessible for both HL and SL students.
+    // ============================================================
+    const QUESTIONS = [
+      // Theme A: Motion & Forces (Q1-8)
+      { theme: "A — Motion & Forces", text: "A car accelerates from 10 m/s to 30 m/s in 5 seconds. What is its acceleration?", options: ["2 m/s²", "4 m/s²", "6 m/s²", "8 m/s²"], correct: 1, hint: "a = (30-10)/5 = 20/5 = 4 m/s²" },
+      { theme: "A — Motion & Forces", text: "A ball is thrown upward with speed 25 m/s. What is its maximum height? (g = 10 m/s²)", options: ["25.5 m", "31.25 m", "62.5 m", "125 m"], correct: 1, hint: "v² = u² - 2gs → 0 = 625 - 20s → s = 31.25 m" },
+      { theme: "A — Motion & Forces", text: "A 5 kg object has a net force of 15 N applied. What is its acceleration?", options: ["2 m/s²", "3 m/s²", "5 m/s²", "10 m/s²"], correct: 1, hint: "a = F/m = 15/5 = 3 m/s²" },
+      { theme: "A — Motion & Forces", text: "A runner completes a 400 m lap in 50 seconds. What is their average speed?", options: ["6 m/s", "7 m/s", "8 m/s", "10 m/s"], correct: 2, hint: "v = d/t = 400/50 = 8 m/s" },
+      { theme: "A — Motion & Forces", text: "A 1200 kg car traveling at 20 m/s brakes and stops in 4 seconds. What is the average braking force?", options: ["3000 N", "4000 N", "6000 N", "8000 N"], correct: 2, hint: "F = mΔv/Δt = 1200×20/4 = 6000 N" },
+      { theme: "A — Motion & Forces", text: "What is the weight of a 50 kg object on Earth? (g = 10 N/kg)", options: ["50 N", "100 N", "500 N", "1000 N"], correct: 2, hint: "W = mg = 50 × 10 = 500 N" },
+      { theme: "A — Motion & Forces", text: "A stone is dropped from a bridge and hits the water after 2 seconds. How high is the bridge? (g = 10 m/s²)", options: ["10 m", "20 m", "30 m", "40 m"], correct: 1, hint: "s = ½gt² = 5 × 4 = 20 m" },
+      { theme: "A — Motion & Forces", text: "A force of 20 N acts on a 4 kg object for 3 seconds. What is the impulse?", options: ["20 Ns", "40 Ns", "60 Ns", "80 Ns"], correct: 2, hint: "Impulse = F × t = 20 × 3 = 60 Ns" },
+      
+      // Theme B: Thermal & Matter (Q9-14)
+      { theme: "B — Thermal & Matter", text: "A 0.5 kg copper block (c = 400 J/kg°C) is heated using 8000 J. What is the temperature rise?", options: ["20°C", "30°C", "40°C", "50°C"], correct: 2, hint: "ΔT = Q/(mc) = 8000/(0.5×400) = 8000/200 = 40°C" },
+      { theme: "B — Thermal & Matter", text: "A gas at constant temperature has initial pressure 100 kPa and volume 2 m³. If volume increases to 5 m³, what is the new pressure?", options: ["20 kPa", "40 kPa", "60 kPa", "80 kPa"], correct: 1, hint: "P₁V₁ = P₂V₂ → 100×2 = P₂×5 → P₂ = 40 kPa" },
+      { theme: "B — Thermal & Matter", text: "How much heat is needed to vaporize 0.2 kg of water at 100°C? (L_v = 2.26 × 10⁶ J/kg)", options: ["2.26 × 10⁵ J", "4.52 × 10⁵ J", "6.78 × 10⁵ J", "9.04 × 10⁵ J"], correct: 1, hint: "Q = mL_v = 0.2 × 2.26e6 = 4.52e5 J" },
+      { theme: "B — Thermal & Matter", text: "The pressure of a fixed mass of gas at constant volume is 200 kPa at 300 K. What is the pressure at 450 K?", options: ["150 kPa", "200 kPa", "300 kPa", "400 kPa"], correct: 2, hint: "P₁/T₁ = P₂/T₂ → 200/300 = P₂/450 → P₂ = 300 kPa" },
+      { theme: "B — Thermal & Matter", text: "A 0.1 kg ice cube at 0°C is placed in water. How much energy is absorbed to melt it? (L_f = 3.34 × 10⁵ J/kg)", options: ["1.67 × 10⁴ J", "3.34 × 10⁴ J", "5.01 × 10⁴ J", "6.68 × 10⁴ J"], correct: 1, hint: "Q = mL_f = 0.1 × 3.34e5 = 3.34e4 J" },
+      { theme: "B — Thermal & Matter", text: "A gas does 300 J of work and has its internal energy increase by 200 J. How much heat was added?", options: ["100 J", "200 J", "500 J", "600 J"], correct: 2, hint: "ΔU = Q - W → 200 = Q - 300 → Q = 500 J" },
+      
+      // Theme C: Waves & Sound (Q15-20)
+      { theme: "C — Waves & Sound", text: "A wave has frequency 50 Hz and wavelength 4 m. What is its speed?", options: ["100 m/s", "150 m/s", "200 m/s", "250 m/s"], correct: 2, hint: "v = fλ = 50 × 4 = 200 m/s" },
+      { theme: "C — Waves & Sound", text: "The speed of sound in air is 340 m/s. A sound wave has frequency 680 Hz. What is its wavelength?", options: ["0.25 m", "0.50 m", "1.00 m", "1.50 m"], correct: 1, hint: "λ = v/f = 340/680 = 0.50 m" },
+      { theme: "C — Waves & Sound", text: "A sound source emits 400 Hz. An observer moves toward the source at 20 m/s. Speed of sound = 340 m/s. What frequency does the observer hear?", options: ["380 Hz", "400 Hz", "425 Hz", "450 Hz"], correct: 2, hint: "f' = f × (v + v₀)/v = 400 × (340+20)/340 = 400 × 360/340 = 423.5 ≈ 425 Hz" },
+      { theme: "C — Waves & Sound", text: "What is the period of a wave with frequency 250 Hz?", options: ["0.002 s", "0.004 s", "0.006 s", "0.008 s"], correct: 1, hint: "T = 1/f = 1/250 = 0.004 s" },
+      { theme: "C — Waves & Sound", text: "A guitar string vibrates at its fundamental frequency of 110 Hz. What is the frequency of the second harmonic?", options: ["55 Hz", "110 Hz", "220 Hz", "330 Hz"], correct: 2, hint: "Second harmonic = 2 × fundamental = 220 Hz" },
+      { theme: "C — Waves & Sound", text: "A wave travels 150 m in 0.5 seconds. What is its speed?", options: ["150 m/s", "200 m/s", "300 m/s", "450 m/s"], correct: 2, hint: "v = d/t = 150/0.5 = 300 m/s" },
+    ];
+
+    // Verify all correct answer indices
+    // Q1: a=4 m/s² → index 1 ✓
+    // Q2: height 31.25 m → index 1 ✓
+    // Q3: a=3 m/s² → index 1 ✓
+    // Q4: v=8 m/s → index 2 ✓
+    // Q5: F=6000 N → index 2 ✓
+    // Q6: weight=500 N → index 2 ✓
+    // Q7: height=20 m → index 1 ✓
+    // Q8: impulse=60 Ns → index 2 ✓
+    // Q9: ΔT=40°C → index 2 ✓
+    // Q10: P=40 kPa → index 1 ✓
+    // Q11: Q=4.52e5 J → index 1 ✓
+    // Q12: P=300 kPa → index 2 ✓
+    // Q13: Q=3.34e4 J → index 1 ✓
+    // Q14: Q=500 J → index 2 ✓
+    // Q15: v=200 m/s → index 2 ✓
+    // Q16: λ=0.50 m → index 1 ✓
+    // Q17: f'≈425 Hz → index 2 ✓
+    // Q18: T=0.004 s → index 1 ✓
+    // Q19: second harmonic=220 Hz → index 2 ✓
+    // Q20: v=300 m/s → index 2 ✓
+
+    // User answers storage
+    let userAnswers = new Array(QUESTIONS.length).fill(null);
+    let examSubmitted = false;
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+      QUESTIONS.forEach((q, idx) => {
+        const qDiv = document.createElement('div');
+        qDiv.className = 'bg-surface-container-lowest border border-outline-variant rounded-2xl p-5 shadow-sm transition-all';
+        qDiv.id = `q-card-${idx}`;
+        qDiv.innerHTML = `
+          <div class="flex justify-between items-start mb-3 flex-wrap gap-2">
+            <div class="flex items-center gap-2">
+              <span class="topic-badge">${q.theme}</span>
+              <span class="text-xs text-outline">Q${idx+1}</span>
+            </div>
+            <button class="flag-btn text-outline hover:text-error transition text-sm" data-qidx="${idx}">
+              <span class="material-symbols-outlined text-base">flag</span>
+            </button>
+          </div>
+          <p class="font-medium text-on-background text-base md:text-lg leading-relaxed mb-5">${q.text}</p>
+          <div class="space-y-3" id="options-${idx}">
+            ${q.options.map((opt, optIdx) => `
+              <div class="opt-card flex items-center gap-3 p-3 border border-outline-variant rounded-xl transition-all ${examSubmitted ? 'disabled-opt' : ''}" data-qidx="${idx}" data-optidx="${optIdx}">
+                <div class="font-semibold w-6 h-6 flex items-center justify-center rounded-full bg-surface-container text-on-surface-variant text-sm">${String.fromCharCode(65+optIdx)}</div>
+                <span class="text-on-surface-variant">${opt}</span>
+              </div>
+            `).join('')}
+          </div>
+        `;
+        container.appendChild(qDiv);
+        if (userAnswers[idx] !== null && !examSubmitted) {
+          const optDivs = document.querySelectorAll(`#options-${idx} .opt-card`);
+          if (optDivs[userAnswers[idx]]) optDivs[userAnswers[idx]].classList.add('selected-opt');
+        }
+        if (examSubmitted) {
+          applySubmissionStyles(idx);
+        }
+      });
+      attachOptionEvents();
+      updateAnsweredCounter();
+    }
+
+    function attachOptionEvents() {
+      if (examSubmitted) return;
+      document.querySelectorAll('.opt-card').forEach(card => {
+        card.removeEventListener('click', optionClickHandler);
+        card.addEventListener('click', optionClickHandler);
+      });
+    }
+
+    function optionClickHandler(e) {
+      if (examSubmitted) return;
+      const card = e.currentTarget;
+      const qidx = parseInt(card.dataset.qidx);
+      const optidx = parseInt(card.dataset.optidx);
+      if (isNaN(qidx)) return;
+      const parentDiv = card.closest(`#options-${qidx}`);
+      if (parentDiv) {
+        parentDiv.querySelectorAll('.opt-card').forEach(opt => opt.classList.remove('selected-opt'));
+      }
+      card.classList.add('selected-opt');
+      userAnswers[qidx] = optidx;
+      updateAnsweredCounter();
+    }
+
+    function applySubmissionStyles(qidx) {
+      const selected = userAnswers[qidx];
+      const correctIdx = QUESTIONS[qidx].correct;
+      const optionsDiv = document.getElementById(`options-${qidx}`);
+      if (!optionsDiv) return;
+      const optCards = optionsDiv.querySelectorAll('.opt-card');
+      optCards.forEach((card, idx) => {
+        card.classList.add('disabled-opt');
+        if (idx === correctIdx) card.classList.add('correct-opt');
+        if (idx === selected && idx !== correctIdx) card.classList.add('wrong-opt');
+        if (idx === selected && idx === correctIdx) card.classList.add('correct-opt');
+      });
+    }
+
+    function updateAnsweredCounter() {
+      const answered = userAnswers.filter(a => a !== null).length;
+      document.getElementById('answeredCount').innerText = answered;
+    }
+
+    function computeScore() {
+      let score = 0;
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        if (userAnswers[i] === QUESTIONS[i].correct) score++;
+      }
+      return score;
+    }
+
+    function submitExam() {
+      if (examSubmitted) return;
+      examSubmitted = true;
+      const score = computeScore();
+      const total = QUESTIONS.length;
+      const percent = (score/total)*100;
+      document.getElementById('scoreDisplay').innerHTML = `${score}/${total}`;
+      let msg = '';
+      if (percent >= 80) msg = '🌟 Excellent performance!';
+      else if (percent >= 60) msg = '👍 Good attempt — review the highlighted questions.';
+      else msg = '📚 Keep practicing core concepts.';
+      document.getElementById('scoreMessage').innerHTML = msg;
+      document.getElementById('scorePanel').classList.remove('hidden');
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        applySubmissionStyles(i);
+      }
+      document.querySelectorAll('.opt-card').forEach(c => c.style.pointerEvents = 'none');
+      document.getElementById('scorePanel').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function resetExam() {
+      if (examSubmitted) examSubmitted = false;
+      userAnswers.fill(null);
+      renderQuestions();
+      document.getElementById('scorePanel').classList.add('hidden');
+      updateAnsweredCounter();
+    }
+
+    function reviewIncorrect() {
+      if (!examSubmitted) return;
+      const firstIncorrect = document.querySelector('.wrong-opt');
+      if (firstIncorrect) {
+        firstIncorrect.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        firstIncorrect.style.transition = '0.2s';
+        firstIncorrect.style.boxShadow = '0 0 0 2px #dc2626';
+        setTimeout(() => { firstIncorrect.style.boxShadow = ''; }, 1500);
+      } else {
+        alert('All answers correct — outstanding performance!');
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderQuestions();
+      document.getElementById('submitBottomBtn')?.addEventListener('click', submitExam);
+      document.getElementById('submitMainExamBtn')?.addEventListener('click', submitExam);
+      document.getElementById('resetBtn')?.addEventListener('click', resetExam);
+      document.getElementById('reviewBtn')?.addEventListener('click', reviewIncorrect);
+    });
+  </script>
+</body>
+</html>
