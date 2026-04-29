@@ -354,17 +354,82 @@
 <p class="text-body-md font-body-md text-slate-500 mb-stack-md">Strategic Decision Making &amp; Case Studies.</p>
 </article>
 
-<!-- Business Paper 3 -->
-<article class="locked-card bg-white border border-outline-variant rounded-[24px] p-card-padding shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-1px_rgba(0,0,0,0.03)] hover:border-slate-300 transition-all flex flex-col">
-<div class="flex justify-between items-start mb-4">
-<div class="bg-slate-50 p-2 rounded-lg">
-<span class="material-symbols-outlined text-slate-600">corporate_fare</span>
+<!-- Business Paper 3 - Timezone Selector (Zones 2A, 2B, 2C only) -->
+<div class="bg-white border border-outline-variant rounded-[24px] p-card-padding shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-1px_rgba(0,0,0,0.03)] transition-all flex flex-col">
+  
+  <div class="flex justify-between items-start mb-4">
+    <div class="bg-slate-50 p-2 rounded-lg">
+      <span class="material-symbols-outlined text-slate-600">corporate_fare</span>
+    </div>
+    <span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase px-2 py-1 rounded">
+      Secured
+    </span>
+  </div>
+
+  <h2 class="font-headline-md text-headline-md text-slate-900 mb-stack-sm">
+    Business Paper 3
+  </h2>
+
+  <p class="text-body-md font-body-md text-slate-500 mb-stack-md">
+    Select your timezone below. Higher Level case study-based extended response.
+  </p>
+
+  <!-- Timezone Selection Row - Only Zones 2A, 2B, 2C -->
+  <div class="flex flex-wrap gap-1.5 mt-auto mb-4">
+    <button data-zone-bp3="2A" data-file-bp3="/BusinessPaper3Zone2A.html" class="zone-option-bp3 bg-[#1e293b] text-white text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200 transition-all">Zone 2A</button>
+    <button data-zone-bp3="2B" data-file-bp3="/BusinessPaper3Zone2A.html" class="zone-option-bp3 bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200 hover:bg-slate-100 transition-all">Zone 2B</button>
+    <button data-zone-bp3="2C" data-file-bp3="/BusinessPaper3Zone2A.html" class="zone-option-bp3 bg-[#F8FAFC] text-slate-600 text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200 hover:bg-slate-100 transition-all">Zone 2C</button>
+  </div>
+
+  <!-- Dynamic Link -->
+  <a id="examLinkBP3" href="/BusinessPaper3Zone2A.html" class="block mt-2">
+    <div class="bg-slate-50 rounded-xl p-3 text-center text-sm text-slate-600 hover:bg-slate-100 transition-colors">
+      <span class="material-symbols-outlined text-sm align-middle mr-1">play_circle</span>
+      Start <span id="selectedZoneLabelBP3">Zone 2A</span> Exam →
+    </div>
+  </a>
+
 </div>
-<span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase px-2 py-1 rounded">Secured</span>
-</div>
-<h2 class="font-headline-md text-headline-md text-slate-900 mb-stack-sm">Business Paper 3</h2>
-<p class="text-body-md font-body-md text-slate-500 mb-stack-md">Global Operations &amp; Change Management.</p>
-</article>
+
+<script>
+  (function() {
+    const zoneButtonsBP3 = document.querySelectorAll('.zone-option-bp3');
+    const examLinkBP3 = document.getElementById('examLinkBP3');
+    const selectedLabelBP3 = document.getElementById('selectedZoneLabelBP3');
+    
+    if (!zoneButtonsBP3.length || !examLinkBP3 || !selectedLabelBP3) return;
+    
+    function updateSelectedZoneBP3(zone, file, buttonElement) {
+      examLinkBP3.href = file;
+      selectedLabelBP3.textContent = zone;
+      
+      zoneButtonsBP3.forEach(btn => {
+        btn.classList.remove('bg-[#1e293b]', 'text-white');
+        btn.classList.add('bg-[#F8FAFC]', 'text-slate-600');
+      });
+      buttonElement.classList.remove('bg-[#F8FAFC]', 'text-slate-600');
+      buttonElement.classList.add('bg-[#1e293b]', 'text-white');
+    }
+    
+    zoneButtonsBP3.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const zone = this.getAttribute('data-zone-bp3');
+        const file = this.getAttribute('data-file-bp3');
+        if (zone && file) {
+          updateSelectedZoneBP3(zone, file, this);
+        }
+      });
+    });
+    
+    // Default active: Zone 2A
+    const defaultButtonBP3 = document.querySelector('.zone-option-bp3[data-zone-bp3="2A"]');
+    if (defaultButtonBP3) {
+      defaultButtonBP3.classList.remove('bg-[#F8FAFC]', 'text-slate-600');
+      defaultButtonBP3.classList.add('bg-[#1e293b]', 'text-white');
+    }
+  })();
+</script>
 
 <!-- SEHS HL Paper 1 -->
 <article class="locked-card bg-white border border-outline-variant rounded-[24px] p-card-padding shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-1px_rgba(0,0,0,0.03)] hover:border-slate-300 transition-all flex flex-col">
