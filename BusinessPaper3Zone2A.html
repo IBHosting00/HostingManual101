@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IB Business Management Paper 3, Timezone Selector | ExamLeaks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    body { background-color: #f8fafc; }
+    .paper-section {
+      background: white;
+      border-radius: 1.5rem;
+      border: 1px solid #e2e8f0;
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+    }
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0f172a;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .sub-question {
+      padding-left: 1rem;
+      border-left: 3px solid #cbd5e1;
+      margin-top: 1rem;
+    }
+    .sub-question:first-of-type {
+      margin-top: 0.5rem;
+    }
+    .cmd-term {
+      font-weight: 600;
+      color: #1e40af;
+      background: #eff6ff;
+      padding: 0.125rem 0.5rem;
+      border-radius: 1rem;
+      font-size: 0.7rem;
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+    .math {
+      font-family: monospace;
+      background: #f1f5f9;
+      padding: 0.125rem 0.375rem;
+      border-radius: 0.375rem;
+      font-size: 0.9em;
+    }
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 52px;
+      height: 26px;
+    }
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #cbd5e1;
+      transition: 0.2s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.2s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #1e293b;
+    }
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+    .zone-only {
+      display: none;
+    }
+    body.zone-2a .zone-2a-only { display: block; }
+    body.zone-2b .zone-2b-only { display: block; }
+    body.zone-2c .zone-2c-only { display: block; }
+    .zone-tab {
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .zone-tab.active {
+      background-color: #1e293b !important;
+      color: white !important;
+      border-color: #1e293b !important;
+    }
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: white;
+        padding: 0;
+        margin: 0;
+      }
+      .paper-section {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased zone-2a">
+
+  <!-- Top bar (no-print) -->
+  <nav class="bg-white border-b border-slate-200 shadow-sm sticky top-0 z-40 no-print">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center gap-8">
+          <span class="text-xl font-bold text-slate-900">ExamLeaks · IB Business Management</span>
+          <div class="hidden md:flex gap-6">
+            <a href="/Landing.html" class="text-slate-500 hover:text-slate-700">Dashboard</a>
+            <a href="#" class="text-slate-900 font-semibold border-b-2 border-slate-900 pb-2">MyExams</a>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <span class="material-symbols-outlined text-slate-500">timer</span>
+          <span class="material-symbols-outlined text-slate-500">account_circle</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-5xl mx-auto px-4 py-6 md:py-8">
+    <!-- Header and zone toggle -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 no-print">
+      <div>
+        <h1 class="text-3xl font-bold tracking-tight text-slate-900">Business Management Paper 3</h1>
+        <p class="text-slate-500 mt-1">Higher Level only. Case study-based extended response questions. Answer all questions.</p>
+        <div class="mt-3 bg-red-50 border-l-4 border-red-600 p-3 rounded-md">
+          <p class="text-red-700 text-xs font-medium">⚠️ Disclaimer: Only about 75% of these questions are confirmed.</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl border border-slate-200 p-2 shadow-sm flex items-center gap-2">
+        <span class="text-xs text-slate-500 mr-1">Timezone:</span>
+        <button data-zone="2a" class="zone-tab active px-3 py-1.5 rounded-full text-xs font-medium bg-[#1e293b] text-white transition-all">Zone 2A</button>
+        <button data-zone="2b" class="zone-tab px-3 py-1.5 rounded-full text-xs font-medium bg-[#F8FAFC] text-slate-600 hover:bg-slate-100 transition-all">Zone 2B</button>
+        <button data-zone="2c" class="zone-tab px-3 py-1.5 rounded-full text-xs font-medium bg-[#F8FAFC] text-slate-600 hover:bg-slate-100 transition-all">Zone 2C</button>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ZONE 2A: SOCIAL ENTERPRISE (WATER / SUSTAINABILITY)          -->
+    <!-- ============================================================ -->
+    <div class="zone-2a-only">
+      <!-- Stimulus Materials -->
+      <div class="paper-section bg-amber-50/30 border-amber-200">
+        <div class="section-title">
+          <span>2A</span>
+          <span class="text-xs font-normal text-slate-500">Social Enterprise</span>
+        </div>
+        
+        <div class="mb-6">        </div>
+        
+        <div class="mb-6">
+          <h3 class="font-bold text-slate-800 mb-2">Resource 2, Marketing Meeting Excerpt</h3>
+          <p class="text-sm text-slate-600 italic">"Our surveys show that 68% of peri-urban households would pay up to $45 for a reliable filtration system. However, current price point is $65. Institutional buyers want bulk discounts and 60-day credit terms. We can't afford that without external financing." — Aisha Mwangi, Marketing Director.</p>
+        </div>
+        
+        <div class="mb-6">
+        </div>
+        
+        <div class="mb-4">
+        </div>
+      </div>
+
+      <!-- Questions Zone 2A -->
+      <div class="paper-section">
+        <div class="section-title">
+          <span>Questions</span>
+          <span class="text-sm font-normal text-slate-500"></span>
+        </div>
+
+        <div class="mb-8">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="cmd-term">Maximum mark: 6</span>
+              <span class="font-bold text-slate-800">Question 1</span>
+            </div>
+            <span class="bg-green-100 text-green-700 text-[10px] font-medium px-2 py-0.5 rounded-full flex items-center gap-1">✓ Verified</span>
+          </div>
+          <div class="sub-question"><p><span class="cmd-term">[2]</span> (a) Define the term <strong>social enterprise</strong>.</p></div>
+          <div class="sub-question"><p><span class="cmd-term">[4]</span> (b) Explain two challenges ACC faces in balancing its social mission with financial sustainability. Use Resource 1 and Resource 2.</p></div>
+        </div>
+
+        <div class="mb-8">
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <span class="cmd-term">Maximum mark: 8</span>
+            <span class="font-bold text-slate-800">Question 2</span>
+          </div>
+          <div class="sub-question"><p><span class="cmd-term">[4]</span> (a) Calculate for ACC (using Resource 4):<br>i. Gross profit margin (GPM)<br>ii. Current ratio<br>iii. Trade receivables days (using revenue = 365 days)<br>Show all workings.</p></div>
+          <div class="sub-question"><p><span class="cmd-term">[4]</span> (b) Analyse the implications of ACC's trade receivables days for its working capital management. Refer to Resource 4.</p></div>
+        </div>
+
+        <div class="mb-8">
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <span class="cmd-term">Maximum mark: 10</span>
+            <span class="font-bold text-slate-800">Question 3</span>
+          </div>
+          <div class="sub-question"><p><span class="cmd-term">[10]</span> GlobalAid, an international NGO, offers ACC a contract to supply 2,000 units over 12 months at $58/unit (vs current $64). Payment terms: 30% on order, 70% on delivery.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ZONE 2B: GREEN CONSTRUCTION / CIRCULAR ECONOMY               -->
+    <!-- ============================================================ -->
+    <div class="zone-2b-only" style="display: none;">
+      <!-- Stimulus Materials -->
+      <div class="paper-section bg-amber-50/30 border-amber-200">
+        <div class="section-title">
+          <span></span>
+          <span class="text-xs font-normal text-slate-500">Construction Materials</span>
+        </div>
+        
+        <div class="mb-6">
+        </div>
+        
+        <div class="mb-6">
+        </div>
+        
+        <div class="mb-6">
+        </div>
+        
+        <div class="mb-6">
+          <h3 class="font-bold text-slate-800 mb-2">Resource 4, I nvestment Proposal</h3>
+          <p class="text-sm text-slate-600">Expanding recycled concrete capacity requires $150m investment (bank loan at 8% interest). Projected revenue from recycled products: $80m by year 3 with 25% profit margin .</p>
+        </div>
+      </div>
+
+      <!-- Questions Zone 2B -->
+      <div class="paper-section">
+        <div class="section-title">
+          <span>Questions 2B</span>
+          <span class="text-sm font-normal text-slate-500"></span>
+        </div>
+
+        <div class="mb-8">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="cmd-term">Maximum mark: 6</span>
+              <span class="font-bold text-slate-800">Question 1</span>
+            </div>
+            <span class="bg-green-100 text-green-700 text-[10px] font-medium px-2 py-0.5 rounded-full flex items-center gap-1">✓ Verified</span>
+          </div>
+          <div class="sub-question"><p><span class="cmd-term">[2]</span> (a) Define the term <strong>greenwashing</strong>.</p></div>
+          <div class="sub-question"><p><span class="cmd-term">[4]</span> (b) Explain two reasons why BGS faces a reputational risk from pressure groups. Refer to Resource 1.</p></div>
+        </div>
+
+        <div class="mb-8">
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <span class="cmd-term">Maximum mark: 8</span>
+            <span class="font-bold text-slate-800">Question 2</span>
+          </div>
+          <div class="sub-question"><p><span class="cmd-term">[4]</span> (a) Calculate the percentage change in net profit margin for BGS between 2024 and 2025 (Resource 3). Show workings.</p></div>
+          <div class="sub-question"><p><span class="cmd-term">[4]</span> (b) Analyse how the 35% increase in limestone prices (Resource 3) has impacted profitability.</p></div>
+        </div>
+
+        <div class="mb-8">
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <span class="cmd-term">Maximum mark: 10</span>
+            <span class="font-bold text-slate-800">Question 3</span>
+          </div>
+          <div class="sub-question"><p><span class="cmd-term">[10]</span> Discuss whether BGS should prioritise expanding its recycled concrete capacity (Resource 4) over improving efficiency in its traditional concrete operations.</p>
+          <ul class="list-disc pl-6 mt-2 text-sm text-slate-600 space-y-1">
+          </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ZONE 2C: E-WASTE RECYCLING / SUSTAINABLE INNOVATION          -->
+    <!-- ============================================================ -->
+    <div class="zone-2c-only" style="display: none;">
+      <!-- Stimulus Materials -->
+      <div class="paper-section bg-amber-50/30 border-amber-200">
+        <div class="section-title">
+          <span>2C</span>
+          <span class="text-xs font-normal text-slate-500">Electronic Waste Recycling</span>
+        </div>
+        
+        <div class="mb-6">
+          <h3 class="font-bold text-slate-800 mb-2">Resource 1, Background</h3>
+          <p class="text-sm text-slate-600">EcoCycle Solutions operates an e-waste recycling facility. A patented room-temperature gold recovery process has won an Environmental Innovation Award. However, the current factory operates at only 40% capacity due to insufficient e-waste supply .</p>
+        </div>
+        
+        <div class="mb-6">
+          <h3 class="font-bold text-slate-800 mb-2">Resource 2, Pre-released Statement Excerpt</h3>
+          <p class="text-sm text-slate-600 italic"></p>
+        </div>
+        
+        <div class="mb-6">
+        </div>
+        
+        <div class="mb-4">
+        </div>
+      </div>
+
+      <!-- Questions Zone 2C -->
+      <div class="paper-section">
+        <div class="section-title">
+          <span>Questions</span>
+          <span class="text-sm font-normal text-slate-500">Answer all questions.</span>
+        </div>
+
+        <div class="mb-8">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="cmd-term">Maximum mark: 6</span>
+              <span class="font-bold text-slate-800">Question 1</span>
+            </div>
+            <span class="bg-green-100 text-green-700 text-[10px] font-medium px-2 py-0.5 rounded-full flex items-center gap-1">✓ Verified</span>
+          </div>
+          <div class="sub-question"><p><span class="cmd-term">[2]</span> (a) Define the term <strong>circular business model</strong> .</p></div>
+          <div class="sub-question"><p><span class="cmd-term">[4]</span> (b) Explain two reasons why EcoCycle's current factory operates below breakeven point. Refer to Resource 1 and Resource 3.</p></div>
+        </div>
+
+        <div class="mb-8">
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <span class="cmd-term">Maximum mark: 8</span>
+            <span class="font-bold text-slate-800">Question 2</span>
+          </div>
+          <div class="sub-question"><p><span class="cmd-term">[4]</span> (a) Calculate the annual tax benefit from government incentives (Resource 3). If this represents 2% of projected annual revenue from new factories, what is the forecast revenue?</p></div>
+          <div class="sub-question"><p><span class="cmd-term">[4]</span> (b) Analyse two risks of the proposed $150m expansion (Resource 2) for EcoCycle.</p></div>
+        </div>
+
+        <div class="mb-8">
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <span class="cmd-term">Maximum mark: 10</span>
+            <span class="font-bold text-slate-800">Question 3</span>
+          </div>
+          <div class="sub-question"><p><span class="cmd-term">[10]</span> Using Resources 1-4, recommend whether EcoCycle should proceed with the $150m expansion. Your answer must:</p>
+          <ul class="list-disc pl-6 mt-2 text-sm text-slate-600 space-y-1">
+          </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center mt-8 pt-4 border-t border-slate-200 no-print">
+      <div class="text-xs text-slate-400">☑ Data booklet and calculator permitted. Show all workings for quantitative questions. Paper 3 weighting: 20% of final grade .</div>
+      <button id="printBtn" class="px-5 py-2 bg-slate-800 text-white rounded-xl text-sm font-medium hover:bg-slate-700 transition shadow-sm">Print Paper</button>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // Zone switching logic
+      const zoneTabs = document.querySelectorAll('.zone-tab');
+      const body = document.body;
+      
+      function setActiveZone(zone) {
+        // Remove all zone classes
+        body.classList.remove('zone-2a', 'zone-2b', 'zone-2c');
+        body.classList.add(`zone-${zone}`);
+        
+        // Update tab styles
+        zoneTabs.forEach(tab => {
+          const tabZone = tab.getAttribute('data-zone');
+          if (tabZone === zone) {
+            tab.classList.remove('bg-[#F8FAFC]', 'text-slate-600');
+            tab.classList.add('bg-[#1e293b]', 'text-white');
+          } else {
+            tab.classList.remove('bg-[#1e293b]', 'text-white');
+            tab.classList.add('bg-[#F8FAFC]', 'text-slate-600');
+          }
+        });
+        
+        // Show/hide zone content
+        document.querySelectorAll('.zone-2a-only, .zone-2b-only, .zone-2c-only').forEach(el => {
+          el.style.display = 'none';
+        });
+        const activeZone = document.querySelector(`.zone-${zone}-only`);
+        if (activeZone) activeZone.style.display = 'block';
+        
+        localStorage.setItem('businessPaper3Zone', zone);
+      }
+      
+      zoneTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const zone = tab.getAttribute('data-zone');
+          setActiveZone(zone);
+        });
+      });
+      
+      // Load saved zone preference
+      const savedZone = localStorage.getItem('businessPaper3Zone');
+      if (savedZone && ['2a', '2b', '2c'].includes(savedZone)) {
+        setActiveZone(savedZone);
+      }
+      
+      // Print functionality
+      const printBtn = document.getElementById('printBtn');
+      if (printBtn) {
+        printBtn.addEventListener('click', () => window.print());
+      }
+    })();
+  </script>
+</body>
+</html>
